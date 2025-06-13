@@ -1,0 +1,103 @@
+.Sidebar {
+  background-color: black;
+  border-radius: 0 1rem 1rem 0;
+  box-shadow: 0px -5px 20px black;
+  color: white;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  transition: width 0.4s;
+  width: 5rem;
+  z-index: 100;
+}
+
+.Sidebar a,
+.Sidebar a:hover {
+  text-decoration: none;
+}
+
+.Sidebar:hover {
+  width: 250px;
+}
+
+.Sidebar .inner {
+  width: 250px;
+}
+
+.Sidebar .header {
+  align-items: center;
+  background-color: var(--dark-gray);
+  display: flex;
+  height: 6rem;
+  padding: 0 0.75rem;
+}
+
+.Sidebar .header h1 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 12px;
+}
+
+.logo {
+  background-color: var(--yellow);
+  border-radius: 2rem;
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+.Sidebar .menu {
+  position: relative;
+  display: grid;
+}
+
+.Sidebar button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+.Sidebar .menu button {
+  align-items: center;
+  color: var(--medium-gray);
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  gap: 16px;
+  height: 5rem;
+  line-height: 1;
+  text-transform: capitalize;
+  padding: 0 1rem;
+  transition: 0.5s;
+  width: 100%;
+}
+.Sidebar .menu button.active {
+  color: white;
+  background: var(--purple2);
+}
+
+.Sidebar:hover .menu button:hover.active {
+  background: var(--purple2);
+}
+
+.Sidebar:hover .menu button:hover {
+  background-color: var(--dark-gray);
+  color: rgb(255 255 255 / 100%);
+  opacity: 1;
+}
+
+.Sidebar .menu button p,
+.Sidebar .header h1 {
+  font-weight: bold;
+  opacity: 0;
+  transition: 0.15s;
+}
+
+.Sidebar:hover :is(.Sidebar .menu button p, .Sidebar .header h1) {
+  opacity: 1;
+}
+
+.Sidebar:hover .logo {
+  scale: 1;
+}

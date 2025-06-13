@@ -1,0 +1,9 @@
+.PageHeader {
+  background-color: var(--purple2);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  text-align: center;
+  width: 100%;
+}
