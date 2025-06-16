@@ -1,0 +1,18 @@
+.ImagingNotes {
+  background-color: white;
+  width: 100%;
+}
+
+.ImagingNotes .notesHeader {
+  background-color: var(--dark-gray);
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white;
+}
+
+.ImagingNotes .notesBody {
+  background-color: white;
+  color: black;
+  font-style: italic;
+  text-align: left;
+}

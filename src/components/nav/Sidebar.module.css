@@ -8,7 +8,7 @@
   overflow: hidden;
   position: fixed;
   transition: width 0.4s;
-  width: 5rem;
+  width: 4rem;
   z-index: 100;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .Sidebar:hover {
-  width: 250px;
+  width: 225px;
 }
 
 .Sidebar .inner {
@@ -42,8 +42,8 @@
 .logo {
   background-color: var(--yellow);
   border-radius: 2rem;
-  height: 3.5rem;
-  width: 3.5rem;
+  height: 2.5rem;
+  width: 2.5rem;
 }
 
 .Sidebar .menu {
@@ -74,11 +74,11 @@
 }
 .Sidebar .menu button.active {
   color: white;
-  background: var(--purple2);
+  background: var(--indigo);
 }
 
 .Sidebar:hover .menu button:hover.active {
-  background: var(--purple2);
+  background: var(--indigo);
 }
 
 .Sidebar:hover .menu button:hover {

@@ -16,45 +16,45 @@
   width: 100%;
 }
 
-h2 {
+.ImagingTable h2 {
   color: var(--light-gray);
   font-size: 1.25rem;
   margin: 0;
 }
 
-input[type="checkbox"] {
+.ImagingTable input[type="checkbox"] {
   border-radius: 0.5rem;
   height: 1rem;
   width: 1rem;
 }
 
-.thin {
+.ImagingTable .thin {
   width: 2.5rem;
 }
 
-thead tr {
+.ImagingTable thead tr {
   background-color: var(--dark-gray);
 }
 
-th:nth-child(2) {
+.ImagingTable th:nth-child(2) {
   width: 1.5rem;
 }
 
-td,
-th {
+.ImagingTable td,
+.ImagingTable th {
   height: 3.5rem;
 }
 
-tr {
+.ImagingTable tr {
   border-bottom: 1px solid var(--dark-gray);
 }
 
-tr:last-of-type {
+.ImagingTable tr:last-of-type {
   border-bottom: none;
 }
 
-.view,
-.options {
+.ImagingTable .view,
+.ImagingTable .options {
   align-items: center;
   background: none;
   border: none;

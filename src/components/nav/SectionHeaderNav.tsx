@@ -1,19 +1,23 @@
 import { Link } from "react-router-dom";
 import useLocationRoutes from "../../hooks/useLocationRoutes";
-import styles from "./ImagingHeader.module.css";
+import type { Status } from "../../types/Imaging";
+import styles from "./SectionHeaderNav.module.css";
 
-const sections = ["queue", "imaged", "washed"];
+interface Props {
+  sections: Status[];
+  basePath: string;
+}
 
-function ImagingHeader() {
-  const { isPath, isSubPath } = useLocationRoutes();
+function SectionHeaderNav({ sections, basePath }: Props) {
+  const { isLocation, isPath } = useLocationRoutes();
 
   return (
-    <div className={styles.ImagingHeader}>
+    <div className={styles.SectionHeaderNav}>
       {sections.map((item, index) => (
         <Link to={item} key={item + index}>
           <button
             className={
-              isPath(`/imaging/${item}`) || isSubPath(`/imaging/${item}`)
+              isPath(`/${basePath}/${item}`) || isLocation(item)
                 ? styles.active
                 : ""
             }
@@ -27,4 +31,4 @@ function ImagingHeader() {
   );
 }
 
-export default ImagingHeader;
+export default SectionHeaderNav;

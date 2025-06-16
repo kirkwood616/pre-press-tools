@@ -1,4 +1,4 @@
-.ImagingHeader {
+.SectionHeaderNav {
   align-items: center;
   justify-content: center;
   background-color: var(--dark-gray);
@@ -8,7 +8,7 @@
   width: 100%;
 }
 
-.ImagingHeader button {
+.SectionHeaderNav button {
   background-color: var(--dark-gray2);
   border: 1px solid var(--medium-gray);
   border-radius: 0.25rem;
@@ -22,7 +22,7 @@
   transition: 0.15s ease-in-out;
 }
 
-.ImagingHeader button.active {
+.SectionHeaderNav button.active {
   background-color: var(--green);
   border: 1px solid var(--green);
   color: black;

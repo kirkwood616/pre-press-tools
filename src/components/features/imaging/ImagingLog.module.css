@@ -1,0 +1,33 @@
+.ImagingLog,
+.ImagingLog .logHeader,
+.ImagingLog .logBody {
+  width: 100%;
+}
+
+.ImagingLog .logHeader {
+  background-color: var(--dark-gray);
+  height: 2rem;
+}
+
+.ImagingLog .logHeader > button {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.ImagingLog .logBody {
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  text-align: left;
+  width: 100%;
+}
+
+.ImagingLog .logBody.visible {
+  height: auto;
+}
+
+.ImagingLog .logEntry {
+  font-style: unset;
+  text-align: left;
+}

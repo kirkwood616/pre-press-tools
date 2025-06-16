@@ -5,8 +5,8 @@ import ImageIcon from "../../icons/ImageIcon";
 import styles from "./Sidebar.module.css";
 
 const navItems = [
-  { name: "home", image: <HomeIcon />, path: "/" },
-  { name: "imaging", image: <ImageIcon />, path: "/imaging/queue" },
+  { name: "home", image: <HomeIcon size="2rem" />, path: "/" },
+  { name: "imaging", image: <ImageIcon size="2rem" />, path: "imaging/queue" },
 ];
 
 function Sidebar() {

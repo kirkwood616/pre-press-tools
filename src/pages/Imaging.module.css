@@ -1,3 +1,9 @@
 .Imaging {
   width: 100%;
 }
+
+.Imaging input[type="checkbox"] {
+  border-radius: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+}

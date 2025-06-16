@@ -1,0 +1,51 @@
+.ImagingSetups {
+  width: 100%;
+}
+
+.ImagingSetups table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.ImagingSetups thead tr {
+  background-color: var(--dark-gray);
+  border: none;
+  color: white;
+}
+
+.ImagingSetups thead th.artFile,
+.ImagingSetups tbody td.artFile {
+  padding-left: 1rem;
+  text-align: left;
+}
+
+.ImagingSetups thead th.dataColumn {
+  width: 4.5rem;
+}
+
+.ImagingSetups tbody tr {
+  border-bottom: 1px solid var(--dark-gray);
+}
+.ImagingSetups tbody tr td {
+  border-right: 1px solid var(--dark-gray);
+}
+.ImagingSetups tbody tr td:last-child {
+  border-right: none;
+}
+
+.ImagingSetups th,
+.ImagingSetups td {
+  height: 2.25rem;
+}
+
+.ImagingSetups .numberColumn,
+.ImagingSetups .checkColumn {
+  width: 4.5rem;
+}
+
+.ImagingSetups .cts {
+  background-color: var(--light-yellow);
+}
+.ImagingSetups .film {
+  background-color: var(--light-bright-purple);
+}
