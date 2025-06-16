@@ -1,14 +1,17 @@
+import { useContext } from "react";
 import ImagingLog from "../components/features/imaging/ImagingLog";
 import ImagingNotes from "../components/features/imaging/ImagingNotes";
 import ImagingSetups from "../components/features/imaging/ImagingSetups";
-import type { ImagingRecord } from "../types/Imaging";
+import ImagingContext from "../context/ImagingContext";
+import useLocationRoutes from "../hooks/useLocationRoutes";
 import styles from "./ImagingOrder.module.css";
 
-interface Props {
-  record: ImagingRecord;
-}
+function ImagingOrder() {
+  const { location } = useLocationRoutes();
+  const { records } = useContext(ImagingContext);
+  const { recordIndex } = location.state;
+  const record = records[recordIndex];
 
-function ImagingOrder({ record }: Props) {
   return (
     <section className={styles.ImagingOrder}>
       <div className={styles.imagingHeader}>

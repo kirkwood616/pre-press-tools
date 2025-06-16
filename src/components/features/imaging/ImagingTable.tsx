@@ -1,14 +1,13 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import ImagingContext from "../../../context/ImagingContext";
 import MenuDots from "../../../icons/MenuDots";
 import ViewOrder from "../../../icons/ViewOrder";
-import type { ImagingRecord } from "../../../types/Imaging";
 import styles from "./ImagingTable.module.css";
 
-interface Props {
-  data: ImagingRecord[];
-}
+function ImagingTable() {
+  const { records } = useContext(ImagingContext);
 
-function ImagingTable({ data }: Props) {
   return (
     <div className={styles.container}>
       <table className={styles.ImagingTable}>
@@ -31,7 +30,7 @@ function ImagingTable({ data }: Props) {
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
+          {records.map((item, index) => (
             <tr className={styles.queue} key={item.order + index}>
               <td>
                 <input type="checkbox" name="check" id="check" />
@@ -39,7 +38,7 @@ function ImagingTable({ data }: Props) {
               <td className={styles.due}>{item.due}</td>
               <td>{item.order}</td>
               <td className={styles.thin}>
-                <Link to={item.order}>
+                <Link to={item.id!} state={{ recordIndex: index }}>
                   <button className={styles.view}>
                     <ViewOrder size="1.25rem" fill="var(--dark-gray)" />
                   </button>

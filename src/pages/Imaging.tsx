@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import PageHeader from "../components/headers/PageHeader";
 import SectionHeaderNav from "../components/nav/SectionHeaderNav";
+import ImagingContextProvider from "../context/ImagingContextProvider";
 import useLocationRoutes from "../hooks/useLocationRoutes";
 import { sections } from "../utils/TestData";
 import styles from "./Imaging.module.css";
@@ -17,7 +18,9 @@ function Imaging() {
         <SectionHeaderNav sections={sections} basePath="imaging" />
       )}
       <div className={styles.Imaging}>
-        <Outlet />
+        <ImagingContextProvider>
+          <Outlet />
+        </ImagingContextProvider>
       </div>
     </>
   );
