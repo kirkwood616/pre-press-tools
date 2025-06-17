@@ -1,0 +1,71 @@
+.LogIn {
+  align-items: center;
+  background-color: var(--indigo);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.LogIn form {
+  background-color: var(--light-blue);
+  box-shadow: 0 15px 20px var(--dark-gray2);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 500px;
+}
+
+.LogIn button {
+  background-color: var(--green);
+  border: 1px solid var(--dark-gray2);
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 7px var(--dark-gray2);
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  width: 50%;
+}
+
+.LogIn .input_container {
+  padding: 0.5rem 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.LogIn .input_container label {
+  color: var(--dark-gray2);
+  display: block;
+  font-weight: bold;
+  text-align: left;
+}
+
+.LogIn input[type="text"],
+input[type="password"] {
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 7px var(--indigo);
+  font-size: 1rem;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.LogIn input[type="text"]:focus,
+input[type="password"]:focus {
+  transition: all 0.1s ease-in-out;
+  box-shadow: 0 0 7px var(--dark-gray);
+}
+
+.LogIn .loginError {
+  color: var(--red);
+  font-weight: bold;
+  font-size: 1.25rem;
+}
