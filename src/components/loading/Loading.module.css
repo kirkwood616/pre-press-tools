@@ -12,9 +12,9 @@
 }
 .loader {
   animation: loading 1s linear infinite;
+  border: 10px solid #ddd;
   border-radius: 50%;
   border-top-color: var(--dark-gray2);
-  border: 10px solid #ddd;
   height: 100px;
   width: 100px;
 }
