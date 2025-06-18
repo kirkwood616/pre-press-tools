@@ -1,7 +1,8 @@
 import { useContext } from "react";
-import ImagingLog from "../components/features/imaging/ImagingLog";
-import ImagingNotes from "../components/features/imaging/ImagingNotes";
-import ImagingSetups from "../components/features/imaging/ImagingSetups";
+
+import ImagingLog from "../components/features/imaging/views/ImagingLog";
+import ImagingNotes from "../components/features/imaging/views/ImagingNotes";
+import ImagingSetups from "../components/features/imaging/views/ImagingSetups";
 import ImagingContext from "../context/ImagingContext";
 import useLocationRoutes from "../hooks/useLocationRoutes";
 import styles from "./ImagingOrder.module.css";

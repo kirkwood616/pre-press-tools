@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import ImagingContext from "../../../context/ImagingContext";
-import MenuDots from "../../../icons/MenuDots";
-import ViewOrder from "../../../icons/ViewOrder";
+import ImagingContext from "../../../../context/ImagingContext";
+import MenuDots from "../../../../icons/MenuDots";
+import ViewOrder from "../../../../icons/ViewOrder";
 import styles from "./ImagingTable.module.css";
 
 function ImagingTable() {
