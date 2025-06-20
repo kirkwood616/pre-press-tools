@@ -1,9 +1,9 @@
+import Loading from "@/components/loading/Loading";
+import { auth } from "@/firebase";
+import useAuthCheck from "@/hooks/useAuthCheck";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState, type FormEvent } from "react";
 import { Navigate } from "react-router-dom";
-import Loading from "../components/loading/Loading";
-import { auth } from "../firebase";
-import useAuthCheck from "../hooks/useAuthCheck";
 import styles from "./LogIn.module.css";
 
 function LogIn() {

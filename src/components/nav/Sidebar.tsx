@@ -1,13 +1,13 @@
+import { auth } from "@/firebase";
+import useAuthCheck from "@/hooks/useAuthCheck";
+import useLocationRoutes from "@/hooks/useLocationRoutes";
+import HomeIcon from "@/icons/HomeIcon";
+import ImageIcon from "@/icons/ImageIcon";
+import LogOut from "@/icons/LogOut";
+import { getFirstLetter, removeAtAndAddress } from "@/utils/StringUtils";
 import { signOut } from "firebase/auth";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../firebase";
-import useAuthCheck from "../../hooks/useAuthCheck";
-import useLocationRoutes from "../../hooks/useLocationRoutes";
-import HomeIcon from "../../icons/HomeIcon";
-import ImageIcon from "../../icons/ImageIcon";
-import LogOut from "../../icons/LogOut";
-import { getFirstLetter, removeAtAndAddress } from "../../utils/StringUtils";
 import styles from "./Sidebar.module.css";
 
 const navItems = [

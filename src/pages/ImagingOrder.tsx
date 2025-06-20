@@ -1,10 +1,10 @@
+import ImagingContext from "@/context/ImagingContext";
+import ImagingLog from "@/features/imaging/log/ImagingLog";
+import ImagingMetadata from "@/features/imaging/metadata/ImagingMetadata";
+import ImagingNotes from "@/features/imaging/notes/ImagingNotes";
+import ImagingSetups from "@/features/imaging/setups/ImagingSetups";
+import useLocationRoutes from "@/hooks/useLocationRoutes";
 import { useContext } from "react";
-import ImagingContext from "../context/ImagingContext";
-import ImagingLog from "../features/imaging/log/ImagingLog";
-import ImagingMetadata from "../features/imaging/metadata/ImagingMetadata";
-import ImagingNotes from "../features/imaging/notes/ImagingNotes";
-import ImagingSetups from "../features/imaging/setups/ImagingSetups";
-import useLocationRoutes from "../hooks/useLocationRoutes";
 import styles from "./ImagingOrder.module.css";
 
 interface Props {

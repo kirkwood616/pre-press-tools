@@ -10,5 +10,13 @@ export default function useLocationRoutes() {
   const params: Readonly<Params<string>> = useParams();
   const idParams: string | undefined = params.id;
 
-  return { location, isLocation, isPath, isSubPath, idParams };
+  return {
+    location,
+    isLocation,
+    isPath,
+    isSubPath,
+    idParams,
+    pathName,
+    params,
+  };
 }

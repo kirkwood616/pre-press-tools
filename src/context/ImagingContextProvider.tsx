@@ -1,7 +1,7 @@
+import ImagingContext from "@/context/ImagingContext";
+import { getAllRecords } from "@/services/imagingServices";
+import type { ImagingRecord } from "@/types/Imaging";
 import { useEffect, useState, type ReactNode } from "react";
-import { getAllRecords } from "../services/imagingServices";
-import type { ImagingRecord } from "../types/Imaging";
-import ImagingContext from "./ImagingContext";
 
 interface ImagingContextProviderProps {
   children: ReactNode;

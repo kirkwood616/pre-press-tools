@@ -1,6 +1,6 @@
+import useLocationRoutes from "@/hooks/useLocationRoutes";
+import type { Status } from "@/types/Imaging";
 import { Link } from "react-router-dom";
-import useLocationRoutes from "../../hooks/useLocationRoutes";
-import type { Status } from "../../types/Imaging";
 import styles from "./SectionHeaderNav.module.css";
 
 interface Props {

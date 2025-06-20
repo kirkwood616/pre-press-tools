@@ -1,6 +1,6 @@
+import Log from "@/icons/Log";
+import type { ImagingRecord } from "@/types/Imaging";
 import { useState } from "react";
-import Log from "../../../icons/Log";
-import type { ImagingRecord } from "../../../types/Imaging";
 import styles from "./ImagingLog.module.css";
 
 interface Props {

@@ -1,6 +1,6 @@
+import Loading from "@/components/loading/Loading";
+import useAuthCheck from "@/hooks/useAuthCheck";
 import { Navigate } from "react-router-dom";
-import useAuthCheck from "../../hooks/useAuthCheck";
-import Loading from "../loading/Loading";
 
 interface Props {
   component: React.ReactNode;

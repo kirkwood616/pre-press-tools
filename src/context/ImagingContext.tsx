@@ -1,5 +1,5 @@
+import type { ImagingRecord } from "@/types/Imaging";
 import { createContext } from "react";
-import type { ImagingRecord } from "../types/Imaging";
 
 interface ImagingContextModel {
   records: ImagingRecord[];

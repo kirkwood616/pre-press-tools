@@ -1,5 +1,5 @@
-import styles from "../../../pages/ImagingOrder.module.css";
-import type { ImagingRecord } from "../../../types/Imaging";
+import styles from "@/pages/ImagingOrder.module.css";
+import type { ImagingRecord } from "@/types/Imaging";
 
 interface Props {
   record?: ImagingRecord;

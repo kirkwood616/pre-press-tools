@@ -1,6 +1,6 @@
+import Sidebar from "@/components/nav/Sidebar";
+import useAuthCheck from "@/hooks/useAuthCheck";
 import { Outlet } from "react-router-dom";
-import useAuthCheck from "../../hooks/useAuthCheck";
-import Sidebar from "../nav/Sidebar";
 
 function UserContainer() {
   const { user } = useAuthCheck();
