@@ -1,0 +1,36 @@
+.ButtonAddPlus {
+  background-color: black;
+  border-radius: 50%;
+  border: 2px solid var(--green);
+  box-shadow: 0px 0px 9px -1px var(--green);
+  cursor: pointer;
+  height: 24px;
+  position: relative;
+  transition: 0.1s ease-in;
+  width: 24px;
+}
+.ButtonAddPlus::before,
+.ButtonAddPlus::after {
+  background-color: var(--green);
+  content: "";
+  display: block;
+  height: 3px;
+  left: 3px;
+  position: absolute;
+  top: 8px;
+  transition: 0.1s ease-in;
+  width: 14px;
+}
+.ButtonAddPlus::before {
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.ButtonAddPlus:hover {
+  background-color: var(--green);
+  box-shadow: 0px 0px 9px -1px var(--green);
+}
+.ButtonAddPlus:hover::before,
+.ButtonAddPlus:hover::after {
+  background-color: black;
+}

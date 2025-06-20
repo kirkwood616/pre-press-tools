@@ -1,3 +1,4 @@
+import ButtonAddPlus from "@/components/ui/buttons/ButtonAddPlus";
 import type { ImagingRecord } from "@/types/Imaging";
 import styles from "./ImagingSetups.module.css";
 import SetupsEdit from "./SetupsEdit";
@@ -10,7 +11,7 @@ interface Props {
   isCreate?: boolean;
 }
 
-function ImagingSetups({ record, isRead, isEdit, isCreate }: Props) {
+function ImagingSetups({ record, isRead, isEdit }: Props) {
   return (
     <div className={styles.ImagingSetups}>
       <table>
@@ -20,13 +21,16 @@ function ImagingSetups({ record, isRead, isEdit, isCreate }: Props) {
               {record && isRead && (
                 <input type="checkbox" name="checkAll" id="checkAll" />
               )}
-              {!isRead && <>X</>}
             </th>
             <th className={styles.numberColumn}>Setup</th>
             <th className={styles.artFile}>Art File</th>
             <th className={styles.numberColumn}>Screens</th>
             <th className={styles.dataColumn}>PK</th>
-            {!isRead && <th>+</th>}
+            {!isRead && (
+              <th>
+                <ButtonAddPlus />
+              </th>
+            )}
           </tr>
         </thead>
 
