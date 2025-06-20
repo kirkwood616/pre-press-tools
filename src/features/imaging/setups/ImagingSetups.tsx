@@ -1,4 +1,4 @@
-import type { ImagingRecord } from "../../../../types/Imaging";
+import type { ImagingRecord } from "../../../types/Imaging";
 import styles from "./ImagingSetups.module.css";
 import SetupsEdit from "./SetupsEdit";
 import SetupsRead from "./SetupsRead";

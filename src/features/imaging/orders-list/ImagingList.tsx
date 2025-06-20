@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Outlet } from "react-router-dom";
-import ImagingContext from "../../../../context/ImagingContext";
-import useLocationRoutes from "../../../../hooks/useLocationRoutes";
-import Loading from "../../../loading/Loading";
+import Loading from "../../../components/loading/Loading";
+import ImagingContext from "../../../context/ImagingContext";
+import useLocationRoutes from "../../../hooks/useLocationRoutes";
 import styles from "./ImagingList.module.css";
 import ImagingTable from "./ImagingTable";
 
