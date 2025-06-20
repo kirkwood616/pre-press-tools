@@ -1,5 +1,5 @@
-import PageHeader from "@/components/headers/PageHeader";
 import SectionHeaderNav from "@/components/nav/SectionHeaderNav";
+import PageHeader from "@/components/ui/headers/PageHeader";
 import ImagingContextProvider from "@/context/ImagingContextProvider";
 import useLocationRoutes from "@/hooks/useLocationRoutes";
 import { sections } from "@/types/Imaging";
