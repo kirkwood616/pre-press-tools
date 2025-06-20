@@ -2,16 +2,18 @@ import type { ImagingRecord } from "../../../../types/Imaging";
 import styles from "./ImagingNotes.module.css";
 
 interface Props {
-  record: ImagingRecord;
+  record?: ImagingRecord;
+  isEdit?: boolean;
+  isCreate?: boolean;
 }
 
-function ImagingNotes({ record }: Props) {
+function ImagingNotes({ record, isEdit, isCreate }: Props) {
   return (
     <div className={styles.ImagingNotes}>
       <div className={styles.notesHeader}>NOTES</div>
       <div className={styles.notesBody}>
         <ul>
-          {record.notes.map((note, index) => (
+          {record!.notes.map((note, index) => (
             <li className={styles.note} key={note.noteNumber + index}>
               <mark>{note.noteMessage}</mark>
             </li>

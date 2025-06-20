@@ -1,41 +1,47 @@
 import { useContext } from "react";
-
-import ImagingLog from "../components/features/imaging/views/ImagingLog";
-import ImagingNotes from "../components/features/imaging/views/ImagingNotes";
-import ImagingSetups from "../components/features/imaging/views/ImagingSetups";
+import ImagingLog from "../components/features/imaging/log/ImagingLog";
+import ImagingMetadata from "../components/features/imaging/metadata/ImagingMetadata";
+import ImagingNotes from "../components/features/imaging/notes/ImagingNotes";
+import ImagingSetups from "../components/features/imaging/setups/ImagingSetups";
 import ImagingContext from "../context/ImagingContext";
 import useLocationRoutes from "../hooks/useLocationRoutes";
 import styles from "./ImagingOrder.module.css";
 
-function ImagingOrder() {
-  const { location } = useLocationRoutes();
+interface Props {
+  isRead?: boolean;
+  isEdit?: boolean;
+  isCreate?: boolean;
+}
+
+function ImagingOrder({ isRead, isEdit, isCreate }: Props) {
+  const { idParams } = useLocationRoutes();
   const { records } = useContext(ImagingContext);
-  const { recordIndex } = location.state;
-  const record = records[recordIndex];
+  const record = records.find((item) => item.id === idParams);
 
   return (
     <section className={styles.ImagingOrder}>
-      <div className={styles.imagingHeader}>
-        <div className={styles.orderContainer}>
-          <div>
-            <h3>Order:</h3>
-          </div>
-          <div className={styles.orderNumber}>{record.order}</div>
-        </div>
+      <ImagingMetadata
+        record={record}
+        isRead={isRead}
+        isEdit={isEdit}
+        isCreate={isCreate}
+      />
 
-        <div className={styles.dueContainer}>
-          <div>
-            <h3>Due:</h3>
-          </div>
-          <div className={styles.dueDate}>{record.due}</div>
-        </div>
-      </div>
+      <ImagingSetups
+        record={record}
+        isRead={isRead}
+        isEdit={isEdit}
+        isCreate={isCreate}
+      />
 
-      <ImagingSetups record={record} />
+      {record && isRead && record.notes.length && (
+        <ImagingNotes record={record} />
+      )}
+      {record && isRead && !record.notes.length && <></>}
+      {record && isEdit && <ImagingNotes record={record} />}
+      {!record && isCreate && <ImagingNotes />}
 
-      {record.notes.length ? <ImagingNotes record={record} /> : <></>}
-
-      <ImagingLog record={record} />
+      <ImagingLog record={record!} />
 
       <div className={styles.orderFooter}></div>
     </section>

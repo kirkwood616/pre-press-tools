@@ -27,3 +27,5 @@ export interface StatusLog {
   logStatus: Status;
   timestamp: string;
 }
+
+export const imagingStatus: Status[] = ["pending", "queue", "imaged", "washed"];

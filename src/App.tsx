@@ -1,7 +1,8 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import CreateEditContainer from "./components/containers/CreateEditContainer";
 import PrivateRoutes from "./components/containers/PrivateRoutes";
 import UserContainer from "./components/containers/UserContainer";
-import ImagingList from "./components/features/imaging/views/ImagingList";
+import ImagingList from "./components/features/imaging/orders-list/ImagingList";
 import Home from "./pages/Home";
 import Imaging from "./pages/Imaging";
 import ImagingOrder from "./pages/ImagingOrder";
@@ -19,10 +20,13 @@ function App() {
             <Route path="imaging" element={<Imaging />}>
               <Route index element={<Home />} />
               <Route path="queue" element={<ImagingList />}>
-                <Route path={":id"} element={<ImagingOrder />} />
+                <Route path=":id" element={<ImagingOrder isRead />} />
               </Route>
               <Route path="imaged" element={<Home />} />
               <Route path="washed" element={<Home />} />
+              <Route path="edit" element={<CreateEditContainer />}>
+                <Route path=":id" element={<ImagingOrder isEdit />} />
+              </Route>
             </Route>
           </Route>
         </Routes>

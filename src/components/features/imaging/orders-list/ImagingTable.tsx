@@ -38,7 +38,7 @@ function ImagingTable() {
               <td className={styles.due}>{item.due}</td>
               <td>{item.order}</td>
               <td className={styles.thin}>
-                <Link to={item.id!} state={{ recordIndex: index }}>
+                <Link to={item.id!}>
                   <button className={styles.view}>
                     <ViewOrder size="1.25rem" fill="var(--dark-gray)" />
                   </button>
