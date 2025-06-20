@@ -1,4 +1,5 @@
 import ButtonAddPlus from "@/components/ui/buttons/ButtonAddPlus";
+import PocketIcon from "@/icons/PocketIcon";
 import type { ImagingRecord } from "@/types/Imaging";
 import styles from "./ImagingSetups.module.css";
 import SetupsEdit from "./SetupsEdit";
@@ -25,7 +26,9 @@ function ImagingSetups({ record, isRead, isEdit }: Props) {
             <th className={styles.numberColumn}>Setup</th>
             <th className={styles.artFile}>Art File</th>
             <th className={styles.numberColumn}>Screens</th>
-            <th className={styles.dataColumn}>PK</th>
+            <th className={styles.dataColumn}>
+              {!isRead && <PocketIcon size={"1.5rem"} fill={"white"} />}
+            </th>
             {!isRead && (
               <th>
                 <ButtonAddPlus />

@@ -1,0 +1,15 @@
+.PocketIcon__animated {
+  animation: grow 1s ease-in-out infinite alternate;
+  -webkit-animation: grow 1s ease-in-out infinite alternate;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+  100% {
+    transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+  }
+}

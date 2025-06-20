@@ -21,6 +21,7 @@ function SetupsEdit({ record, styles }: Props) {
           <td className={styles.artFile}>{setup.artFile}</td>
           <td>{setup.screens}</td>
           <td></td>
+
           <td></td>
         </tr>
       ))}
