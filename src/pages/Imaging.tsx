@@ -3,7 +3,7 @@ import PageHeader from "../components/headers/PageHeader";
 import SectionHeaderNav from "../components/nav/SectionHeaderNav";
 import ImagingContextProvider from "../context/ImagingContextProvider";
 import useLocationRoutes from "../hooks/useLocationRoutes";
-import { sections } from "../utils/TestData";
+import { sections } from "../types/Imaging";
 import styles from "./Imaging.module.css";
 
 function Imaging() {
