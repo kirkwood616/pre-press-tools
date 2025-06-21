@@ -1,3 +1,4 @@
+import ButtonArrow from "@/components/ui/buttons/ButtonArrow";
 import ButtonCloseX from "@/components/ui/buttons/ButtonCloseX";
 import type { ImagingRecord } from "@/types/Imaging";
 
@@ -21,8 +22,10 @@ function SetupsEdit({ record, styles }: Props) {
           <td className={styles.artFile}>{setup.artFile}</td>
           <td>{setup.screens}</td>
           <td></td>
-
-          <td></td>
+          <td>
+            <ButtonArrow direction="down" />
+            <ButtonArrow direction="up" />
+          </td>
         </tr>
       ))}
     </>

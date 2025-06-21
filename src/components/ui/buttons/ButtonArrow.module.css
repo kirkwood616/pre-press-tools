@@ -1,0 +1,49 @@
+.ButtonArrow {
+  background-color: var(--dark-gray2);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  height: 24px;
+  margin: 2px;
+  transition: 0.1s ease-in;
+  width: 24px;
+}
+
+.ButtonArrow .arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.ButtonArrow:hover {
+  background-color: white;
+  box-shadow: 0px 1px 5px -1px black;
+}
+
+.ButtonArrow:hover .arrow {
+  border: solid var(--dark-gray2);
+  border-width: 0 3px 3px 0;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  margin: -2px 0;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  margin: 2px 0;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
