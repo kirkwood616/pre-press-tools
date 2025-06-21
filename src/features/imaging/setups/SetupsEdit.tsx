@@ -21,7 +21,9 @@ function SetupsEdit({ record, styles }: Props) {
           <td>{setup.setup.toString().toUpperCase()}</td>
           <td className={styles.artFile}>{setup.artFile}</td>
           <td>{setup.screens}</td>
-          <td></td>
+          <td>
+            <input type="checkbox" name="templateCheck" id="templateCheck" />
+          </td>
           <td>
             <ButtonArrow direction="down" />
             <ButtonArrow direction="up" />
