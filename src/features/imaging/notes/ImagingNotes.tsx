@@ -1,3 +1,4 @@
+import NotesIcon from "@/icons/NotesIcon";
 import type { ImagingRecord } from "@/types/Imaging";
 import styles from "./ImagingNotes.module.css";
 
@@ -10,7 +11,9 @@ interface Props {
 function ImagingNotes({ record, isEdit, isCreate }: Props) {
   return (
     <div className={styles.ImagingNotes}>
-      <div className={styles.notesHeader}>NOTES</div>
+      <div className={styles.notesHeader}>
+        <NotesIcon size="1.5rem" />
+      </div>
       <div className={styles.notesBody}>
         <ul>
           {record!.notes.map((note, index) => (
