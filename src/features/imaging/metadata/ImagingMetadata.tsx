@@ -1,5 +1,5 @@
-import styles from "@/pages/ImagingOrder.module.css";
 import type { ImagingRecord } from "@/types/Imaging";
+import styles from "./ImagingMetadata.module.css";
 
 interface Props {
   record?: ImagingRecord;
@@ -10,7 +10,7 @@ interface Props {
 
 function ImagingMetadata({ record, isRead, isEdit, isCreate }: Props) {
   return (
-    <div className={styles.imagingHeader}>
+    <div className={styles.ImagingMetadata}>
       <div className={styles.orderContainer}>
         <div>
           <h3>Order:</h3>

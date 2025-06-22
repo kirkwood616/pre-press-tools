@@ -18,7 +18,7 @@ function ImagingSetups({ record, isRead, isEdit }: Props) {
       <table>
         <thead>
           <tr>
-            <th className={styles.selectColumn}>
+            <th className={styles.iconSelect}>
               {record && isRead && (
                 <input type="checkbox" name="checkAll" id="checkAll" />
               )}
@@ -26,11 +26,11 @@ function ImagingSetups({ record, isRead, isEdit }: Props) {
             <th className={styles.numberColumn}>Setup</th>
             <th className={styles.artFile}>Art File</th>
             <th className={styles.numberColumn}>Screens</th>
-            <th className={styles.dataColumn}>
+            <th className={styles.iconSelect}>
               {!isRead && <PocketIcon size={"1.5rem"} fill={"white"} />}
             </th>
             {!isRead && (
-              <th>
+              <th className={styles.addArrows}>
                 <ButtonAddPlus />
               </th>
             )}

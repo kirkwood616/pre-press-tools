@@ -6,6 +6,7 @@ import ImagingSetups from "@/features/imaging/setups/ImagingSetups";
 import Status from "@/features/imaging/status/Status";
 import useLocationRoutes from "@/hooks/useLocationRoutes";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import styles from "./ImagingOrder.module.css";
 
 interface Props {
@@ -21,6 +22,9 @@ function ImagingOrder({ isRead, isEdit, isCreate }: Props) {
 
   return (
     <section className={styles.ImagingOrder}>
+      <Link to={`/imaging/edit/${record?.id}`}>
+        <h4>EDIT</h4>
+      </Link>
       <ImagingMetadata
         record={record}
         isRead={isRead}

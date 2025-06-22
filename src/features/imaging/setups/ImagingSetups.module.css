@@ -20,7 +20,11 @@
   text-align: left;
 }
 
-.ImagingSetups thead th.dataColumn {
+.ImagingSetups thead th.iconSelect {
+  width: 4rem;
+}
+
+.ImagingSetups thead th.addArrows {
   width: 4.5rem;
 }
 
@@ -32,9 +36,12 @@
   border-right: none;
 }
 
-.ImagingSetups th,
-.ImagingSetups td {
+.ImagingSetups th {
   height: 2.25rem;
+}
+
+.ImagingSetups td {
+  height: 2.75rem;
 }
 
 .ImagingSetups .numberColumn,
@@ -43,7 +50,7 @@
 }
 
 .ImagingSetups .cts {
-  background-color: var(--light-yellow);
+  background-color: var(--light-gray);
 }
 .ImagingSetups .film {
   background-color: var(--light-bright-purple);
