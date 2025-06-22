@@ -19,8 +19,19 @@ function SetupsEdit({ record, styles }: Props) {
             <ButtonCloseX />
           </td>
           <td>{setup.setup.toString().toUpperCase()}</td>
-          <td className={styles.artFile}>{setup.artFile}</td>
-          <td>{setup.screens}</td>
+          <td className={styles.artFile}>
+            <input type="text" value={setup.artFile} />
+          </td>
+          <td>
+            <input
+              type="number"
+              name="screensNumber"
+              id="screensNumber"
+              min="0"
+              max="25"
+              value={setup.screens}
+            />
+          </td>
           <td>
             <input type="checkbox" name="templateCheck" id="templateCheck" />
           </td>

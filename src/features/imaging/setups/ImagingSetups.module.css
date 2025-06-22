@@ -44,8 +44,7 @@
   height: 2.75rem;
 }
 
-.ImagingSetups .numberColumn,
-.ImagingSetups .selectColumn {
+.ImagingSetups .numberColumn {
   width: 4.5rem;
 }
 
@@ -54,4 +53,19 @@
 }
 .ImagingSetups .film {
   background-color: var(--light-bright-purple);
+}
+
+.ImagingSetups input[type="text"],
+.ImagingSetups input[type="number"] {
+  background-color: var(--light-gray);
+  border-radius: 0.25rem;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  height: 2rem;
+}
+
+.ImagingSetups input[type="number"] {
+  text-align: center;
+  width: 3.5rem;
 }
