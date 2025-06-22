@@ -1,0 +1,23 @@
+.Status {
+  background-color: var(--dark-gray);
+  border-bottom: 2px solid var(--dark-gray2);
+  color: white;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
+
+.Status label {
+  display: block;
+}
+
+.Status select {
+  background-color: white;
+  border-radius: 0.25rem;
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.25rem;
+  text-align: center;
+  width: 10rem;
+}

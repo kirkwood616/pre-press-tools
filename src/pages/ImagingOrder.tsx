@@ -3,6 +3,7 @@ import ImagingLog from "@/features/imaging/log/ImagingLog";
 import ImagingMetadata from "@/features/imaging/metadata/ImagingMetadata";
 import ImagingNotes from "@/features/imaging/notes/ImagingNotes";
 import ImagingSetups from "@/features/imaging/setups/ImagingSetups";
+import Status from "@/features/imaging/status/Status";
 import useLocationRoutes from "@/hooks/useLocationRoutes";
 import { useContext } from "react";
 import styles from "./ImagingOrder.module.css";
@@ -26,6 +27,8 @@ function ImagingOrder({ isRead, isEdit, isCreate }: Props) {
         isEdit={isEdit}
         isCreate={isCreate}
       />
+
+      {!isRead && <Status record={record} />}
 
       <ImagingSetups
         record={record}
