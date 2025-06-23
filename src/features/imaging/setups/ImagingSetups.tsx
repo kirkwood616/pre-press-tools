@@ -1,4 +1,5 @@
 import ButtonAddPlus from "@/components/ui/buttons/ButtonAddPlus";
+import AddLineItem from "@/features/imaging/controls/AddLineItem";
 import PocketIcon from "@/icons/PocketIcon";
 import type { ImagingRecord } from "@/types/Imaging";
 import styles from "./ImagingSetups.module.css";
@@ -42,6 +43,7 @@ function ImagingSetups({ record, isRead, isEdit }: Props) {
           {record && isEdit && <SetupsEdit record={record} styles={styles} />}
         </tbody>
       </table>
+      {!isRead && <AddLineItem label="ADD SETUP" />}
     </div>
   );
 }

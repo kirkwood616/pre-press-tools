@@ -1,14 +1,16 @@
+import AddLineItem from "@/features/imaging/controls/AddLineItem";
 import NotesIcon from "@/icons/NotesIcon";
 import type { ImagingRecord } from "@/types/Imaging";
 import styles from "./ImagingNotes.module.css";
 
 interface Props {
   record?: ImagingRecord;
+  isRead?: boolean;
   isEdit?: boolean;
   isCreate?: boolean;
 }
 
-function ImagingNotes({ record, isEdit, isCreate }: Props) {
+function ImagingNotes({ record, isRead }: Props) {
   return (
     <div className={styles.ImagingNotes}>
       <div className={styles.notesHeader}>
@@ -17,12 +19,14 @@ function ImagingNotes({ record, isEdit, isCreate }: Props) {
       <div className={styles.notesBody}>
         <ul>
           {record!.notes.map((note, index) => (
-            <li className={styles.note} key={note.noteNumber + index}>
-              <mark>{note.noteMessage}</mark>
+            <li className={styles.note} key={note.noteMessage + index}>
+              {isRead && <mark>{note.noteMessage}</mark>}
+              {!isRead && <input type="text" value={note.noteMessage} />}
             </li>
           ))}
         </ul>
       </div>
+      {!isRead && <AddLineItem label="ADD NOTE" />}
     </div>
   );
 }
