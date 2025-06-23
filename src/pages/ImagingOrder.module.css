@@ -17,3 +17,12 @@
   height: 1.5rem;
   width: 100%;
 }
+
+.ImagingOrder input {
+  background-color: var(--light-gray);
+  border-radius: 0.25rem;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  min-height: 2rem;
+}

@@ -20,3 +20,16 @@
   font-style: italic;
   text-align: left;
 }
+
+.ImagingNotes ul {
+  font-weight: bold;
+  margin: 0;
+}
+
+.ImagingNotes ul li {
+  padding: 0.25rem;
+}
+
+.ImagingNotes input {
+  width: 95%;
+}

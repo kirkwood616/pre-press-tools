@@ -31,11 +31,6 @@
 
 .ImagingMetadata .orderContainer input,
 .ImagingMetadata .dueContainer input {
-  background-color: var(--light-gray);
-  border-radius: 0.25rem;
-  color: red;
-  font-size: 2rem;
-  font-weight: bold;
   text-align: center;
 }
 

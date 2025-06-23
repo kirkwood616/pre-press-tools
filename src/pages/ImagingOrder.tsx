@@ -42,7 +42,7 @@ function ImagingOrder({ isRead, isEdit, isCreate }: Props) {
       />
 
       {record && isRead && record.notes.length && (
-        <ImagingNotes record={record} />
+        <ImagingNotes record={record} isRead />
       )}
       {record && isRead && !record.notes.length && <></>}
       {record && isEdit && <ImagingNotes record={record} />}

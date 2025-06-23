@@ -1,7 +1,8 @@
+import type { MouseEvent } from "react";
 import styles from "./ButtonAddPlus.module.css";
 
 interface Props {
-  clickFunction?: () => void;
+  clickFunction?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 function ButtonAddPlus({ clickFunction }: Props) {
