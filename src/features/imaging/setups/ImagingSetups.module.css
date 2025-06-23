@@ -16,7 +16,7 @@
 
 .ImagingSetups thead th.artFile,
 .ImagingSetups tbody td.artFile {
-  padding-left: 1rem;
+  padding-left: 0.5rem;
   text-align: left;
 }
 
@@ -58,4 +58,8 @@
 .ImagingSetups input[type="number"] {
   text-align: center;
   width: 3.5rem;
+}
+
+.ImagingSetups td.artFile input[type="text"] {
+  width: 100%;
 }
