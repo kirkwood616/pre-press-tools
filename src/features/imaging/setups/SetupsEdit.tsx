@@ -18,7 +18,27 @@ function SetupsEdit({ record, styles }: Props) {
           <td>
             <ButtonCloseX />
           </td>
-          <td>{setup.setup.toString().toUpperCase()}</td>
+          <td>
+            {!setup.isFilm ? (
+              <input
+                type="number"
+                name="setupNumber"
+                id="setupNumber"
+                min="1"
+                value={setup.setup}
+              />
+            ) : (
+              setup.setup.toString().toUpperCase()
+            )}
+          </td>
+          <td>
+            <input
+              type="checkbox"
+              name="filmCheck"
+              id="filmCheck"
+              checked={record.setups[index].isFilm}
+            />
+          </td>
           <td className={styles.artFile}>
             <input type="text" value={setup.artFile} />
           </td>
