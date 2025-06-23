@@ -40,7 +40,8 @@
 }
 
 .App {
-  height: 100%;
+  background-color: var(--light-gray);
+  height: 100vh;
 }
 
 a {
