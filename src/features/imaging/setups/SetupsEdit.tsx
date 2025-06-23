@@ -53,7 +53,12 @@ function SetupsEdit({ record, styles }: Props) {
             />
           </td>
           <td>
-            <input type="checkbox" name="templateCheck" id="templateCheck" />
+            <input
+              type="checkbox"
+              name="altTemplate"
+              id="altTemplate"
+              checked={setup.isAltTemplate}
+            />
           </td>
           <td>
             <ButtonArrow direction="down" />

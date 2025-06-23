@@ -1,3 +1,4 @@
+import PocketIcon from "@/icons/PocketIcon";
 import type { ImagingRecord } from "@/types/Imaging";
 
 interface Props {
@@ -25,7 +26,9 @@ function SetupsRead({ record, styles }: Props) {
           <td>{setup.setup.toString().toUpperCase()}</td>
           <td className={styles.artFile}>{setup.artFile}</td>
           <td>{setup.screens}</td>
-          <td></td>
+          <td>
+            {setup.isAltTemplate && <PocketIcon fill="var(--red)" animate />}
+          </td>
         </tr>
       ))}
     </>

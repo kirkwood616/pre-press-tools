@@ -16,6 +16,7 @@ export interface Setup {
   screens: number;
   isChecked: boolean;
   isFilm: boolean;
+  isAltTemplate: boolean;
 }
 
 export interface Note {

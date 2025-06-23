@@ -1,7 +1,7 @@
 import styles from "./PocketIcon.module.css";
 
 interface Props {
-  size: string;
+  size?: string;
   fill?: string;
   animate?: boolean;
 }
@@ -11,8 +11,8 @@ function PocketIcon({ size, fill, animate }: Props) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      width={size}
-      height={size}
+      width={size ? size : "1.5rem"}
+      height={size ? size : "1.5rem"}
       className={animate ? styles.PocketIcon__animated : styles.PocketIcon}
     >
       <path
