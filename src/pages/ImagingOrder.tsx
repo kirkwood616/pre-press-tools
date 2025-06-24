@@ -4,7 +4,7 @@ import ImagingLog from "@/features/imaging/log/ImagingLog";
 import ImagingMetadata from "@/features/imaging/metadata/ImagingMetadata";
 import ImagingNotes from "@/features/imaging/notes/ImagingNotes";
 import ImagingSetups from "@/features/imaging/setups/ImagingSetups";
-import Status from "@/features/imaging/status/Status";
+import OrderStatus from "@/features/imaging/status/OrderStatus";
 import useLocationRoutes from "@/hooks/useLocationRoutes";
 import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
 import { useContext, useEffect } from "react";
@@ -19,7 +19,7 @@ interface Props {
 function ImagingOrder({ isRead, isEdit, isCreate }: Props) {
   const { idParams } = useLocationRoutes();
   const { records } = useContext(ImagingContext);
-  const { record, setRecord } = useImagingOrderStore((state) => state);
+  const { record, setRecord } = useImagingOrderStore();
 
   useEffect(() => {
     if (idParams) {
@@ -30,17 +30,12 @@ function ImagingOrder({ isRead, isEdit, isCreate }: Props) {
 
   return (
     <section className={styles.ImagingOrder}>
-      <ImagingMetadata isRead={isRead} isEdit={isEdit} isCreate={isCreate} />
+      <ImagingMetadata isRead={isRead} />
 
       {isRead && <EditOrder record={record} />}
-      {!isRead && <Status record={record} />}
+      {!isRead && <OrderStatus />}
 
-      <ImagingSetups
-        record={record}
-        isRead={isRead}
-        isEdit={isEdit}
-        isCreate={isCreate}
-      />
+      <ImagingSetups isRead={isRead} isEdit={isEdit} isCreate={isCreate} />
 
       {record && isRead && record.notes.length && (
         <ImagingNotes record={record} isRead />

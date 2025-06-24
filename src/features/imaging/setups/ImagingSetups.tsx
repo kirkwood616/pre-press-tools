@@ -1,18 +1,19 @@
 import AddLineItem from "@/features/imaging/controls/AddLineItem";
 import PocketIcon from "@/icons/PocketIcon";
-import type { ImagingRecord } from "@/types/Imaging";
+import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
 import styles from "./ImagingSetups.module.css";
 import SetupsEdit from "./SetupsEdit";
 import SetupsRead from "./SetupsRead";
 
 interface Props {
-  record?: ImagingRecord;
+  // record?: ImagingRecord;
   isRead?: boolean;
   isEdit?: boolean;
   isCreate?: boolean;
 }
 
-function ImagingSetups({ record, isRead, isEdit }: Props) {
+function ImagingSetups({ isRead, isEdit }: Props) {
+  const { record, setCheckedAll } = useImagingOrderStore();
   return (
     <div className={styles.ImagingSetups}>
       <table>
@@ -20,7 +21,12 @@ function ImagingSetups({ record, isRead, isEdit }: Props) {
           <tr>
             <th className={styles.iconSelect}>
               {record && isRead && (
-                <input type="checkbox" name="checkAll" id="checkAll" />
+                <input
+                  type="checkbox"
+                  name="checkAll"
+                  id="checkAll"
+                  onChange={() => setCheckedAll()}
+                />
               )}
             </th>
             <th className={styles.numberColumn}>Setup</th>
@@ -35,7 +41,7 @@ function ImagingSetups({ record, isRead, isEdit }: Props) {
         </thead>
 
         <tbody>
-          {record && isRead && <SetupsRead record={record} styles={styles} />}
+          {record && isRead && <SetupsRead styles={styles} />}
           {record && isEdit && <SetupsEdit record={record} styles={styles} />}
         </tbody>
       </table>

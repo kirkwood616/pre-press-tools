@@ -1,12 +1,13 @@
 import PocketIcon from "@/icons/PocketIcon";
-import type { ImagingRecord } from "@/types/Imaging";
+import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
 
 interface Props {
-  record: ImagingRecord;
   styles: CSSModuleClasses;
 }
 
-function SetupsRead({ record, styles }: Props) {
+function SetupsRead({ styles }: Props) {
+  const { record, setChecked } = useImagingOrderStore();
+
   return (
     <>
       {record.setups.map((setup, index) => (
@@ -19,8 +20,8 @@ function SetupsRead({ record, styles }: Props) {
               type="checkbox"
               name="setupCheck"
               id="setupCheck"
-              // checked={item.isChecked}
-              onChange={() => !setup.isChecked}
+              checked={setup.isChecked}
+              onChange={() => setChecked(index)}
             />
           </td>
           <td>{setup.setup.toString().toUpperCase()}</td>

@@ -6,9 +6,7 @@ interface Props {
 }
 
 function ImagingMetadata({ isRead }: Props) {
-  const { record, setOrderNumber, setDue } = useImagingOrderStore(
-    (state) => state
-  );
+  const { record, setOrderNumber, setDue } = useImagingOrderStore();
 
   return (
     <div className={styles.ImagingMetadata}>

@@ -22,6 +22,8 @@ type Actions = {
   setOrderNumber: (orderNum: string) => void;
   setDue: (dueDate: string) => void;
   setStatus: (status: Status) => void;
+  setChecked: (index: number) => void;
+  setCheckedAll: () => void;
 };
 
 export const useImagingOrderStore = create<State & Actions>()(
@@ -43,6 +45,17 @@ export const useImagingOrderStore = create<State & Actions>()(
     setStatus: (status) =>
       set((state) => {
         state.record.status = status;
+      }),
+    setChecked: (index) =>
+      set((state) => {
+        state.record.setups[index].isChecked =
+          !state.record.setups[index].isChecked;
+      }),
+    setCheckedAll: () =>
+      set((state) => {
+        state.record.setups.forEach(
+          (item) => (item.isChecked = !item.isChecked)
+        );
       }),
   }))
 );
