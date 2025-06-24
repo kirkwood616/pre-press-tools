@@ -6,7 +6,8 @@ import ImagingNotes from "@/features/imaging/notes/ImagingNotes";
 import ImagingSetups from "@/features/imaging/setups/ImagingSetups";
 import Status from "@/features/imaging/status/Status";
 import useLocationRoutes from "@/hooks/useLocationRoutes";
-import { useContext } from "react";
+import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
+import { useContext, useEffect } from "react";
 import styles from "./ImagingOrder.module.css";
 
 interface Props {
@@ -18,16 +19,18 @@ interface Props {
 function ImagingOrder({ isRead, isEdit, isCreate }: Props) {
   const { idParams } = useLocationRoutes();
   const { records } = useContext(ImagingContext);
-  const record = records.find((item) => item.id === idParams);
+  const { record, setRecord } = useImagingOrderStore((state) => state);
+
+  useEffect(() => {
+    if (idParams) {
+      const idRecord = records.find((item) => item.id === idParams);
+      setRecord(idRecord!);
+    }
+  }, [idParams, records, setRecord]);
 
   return (
     <section className={styles.ImagingOrder}>
-      <ImagingMetadata
-        record={record}
-        isRead={isRead}
-        isEdit={isEdit}
-        isCreate={isCreate}
-      />
+      <ImagingMetadata isRead={isRead} isEdit={isEdit} isCreate={isCreate} />
 
       {isRead && <EditOrder record={record} />}
       {!isRead && <Status record={record} />}

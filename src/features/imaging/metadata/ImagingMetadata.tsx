@@ -1,14 +1,15 @@
-import type { ImagingRecord } from "@/types/Imaging";
+import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
 import styles from "./ImagingMetadata.module.css";
 
 interface Props {
-  record?: ImagingRecord;
   isRead?: boolean;
-  isEdit?: boolean;
-  isCreate?: boolean;
 }
 
-function ImagingMetadata({ record, isRead, isEdit, isCreate }: Props) {
+function ImagingMetadata({ isRead }: Props) {
+  const { record, setOrderNumber, setDue } = useImagingOrderStore(
+    (state) => state
+  );
+
   return (
     <div className={styles.ImagingMetadata}>
       <div className={styles.orderContainer}>
@@ -16,9 +17,15 @@ function ImagingMetadata({ record, isRead, isEdit, isCreate }: Props) {
           <h3>Order:</h3>
         </div>
         <div className={styles.orderNumber}>
-          {record && isRead && <>{record.order}</>}
-          {record && isEdit && <input type="text" value={record.order} />}
-          {!record && isCreate && <input type="text" />}
+          {isRead ? (
+            <>{record.order}</>
+          ) : (
+            <input
+              type="text"
+              value={record.order}
+              onChange={(e) => setOrderNumber(e.target.value)}
+            />
+          )}
         </div>
       </div>
 
@@ -27,9 +34,15 @@ function ImagingMetadata({ record, isRead, isEdit, isCreate }: Props) {
           <h3>Due:</h3>
         </div>
         <div className={styles.dueDate}>
-          {record && isRead && <>{record.due}</>}
-          {record && isEdit && <input type="text" value={record.due} />}
-          {!record && isCreate && <input type="text" />}
+          {isRead ? (
+            <>{record.due}</>
+          ) : (
+            <input
+              type="text"
+              value={record.due}
+              onChange={(e) => setDue(e.target.value)}
+            />
+          )}
         </div>
       </div>
     </div>

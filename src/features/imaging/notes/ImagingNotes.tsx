@@ -19,9 +19,9 @@ function ImagingNotes({ record, isRead }: Props) {
       <div className={styles.notesBody}>
         <ul>
           {record!.notes.map((note, index) => (
-            <li className={styles.note} key={note.noteMessage + index}>
-              {isRead && <mark>{note.noteMessage}</mark>}
-              {!isRead && <input type="text" value={note.noteMessage} />}
+            <li className={styles.note} key={note + index}>
+              {isRead && <mark>{note}</mark>}
+              {!isRead && <input type="text" value={note} />}
             </li>
           ))}
         </ul>
