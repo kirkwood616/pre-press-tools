@@ -4,7 +4,7 @@ export interface ImagingRecord {
   due: string;
   status: Status;
   setups: Setup[];
-  notes: Note[];
+  notes: string[];
   statusLog: StatusLog[];
 }
 
@@ -17,11 +17,6 @@ export interface Setup {
   isChecked: boolean;
   isFilm: boolean;
   isAltTemplate: boolean;
-}
-
-export interface Note {
-  noteNumber: number;
-  noteMessage: string;
 }
 
 export interface StatusLog {
