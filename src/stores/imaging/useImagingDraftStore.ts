@@ -29,6 +29,7 @@ type Actions = {
   setArtFile: (artName: string, index: number) => void;
   setScreenCount: (count: number, index: number) => void;
   setIsAltTemplate: (index: number) => void;
+  deleteSetup: (index: number) => void;
 };
 
 export const useImagingDraftStore = create<State & Actions>()(
@@ -88,6 +89,10 @@ export const useImagingDraftStore = create<State & Actions>()(
       set((state) => {
         state.draftRecord.setups[index].isAltTemplate =
           !state.draftRecord.setups[index].isAltTemplate;
+      }),
+    deleteSetup: (index) =>
+      set((state) => {
+        state.draftRecord.setups.splice(index, 1);
       }),
   }))
 );
