@@ -1,4 +1,5 @@
 import type { ImagingRecord, Status } from "@/types/Imaging";
+import { arrayMove } from "@/utils/ArrayUtils";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
@@ -30,6 +31,8 @@ type Actions = {
   setScreenCount: (count: number, index: number) => void;
   setIsAltTemplate: (index: number) => void;
   deleteSetup: (index: number) => void;
+  moveSetupForward: (index: number) => void;
+  moveSetupBack: (index: number) => void;
 };
 
 export const useImagingDraftStore = create<State & Actions>()(
@@ -93,6 +96,14 @@ export const useImagingDraftStore = create<State & Actions>()(
     deleteSetup: (index) =>
       set((state) => {
         state.draftRecord.setups.splice(index, 1);
+      }),
+    moveSetupForward: (index) =>
+      set((state) => {
+        arrayMove(state.draftRecord.setups, index, index - 1);
+      }),
+    moveSetupBack: (index) =>
+      set((state) => {
+        arrayMove(state.draftRecord.setups, index, index + 1);
       }),
   }))
 );

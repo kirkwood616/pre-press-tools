@@ -11,7 +11,8 @@ import styles from "./ImagingSetups.module.css";
 
 function SetupsEdit() {
   const { record } = useImagingOrderStore();
-  const { draftRecord, deleteSetup } = useImagingDraftStore();
+  const { draftRecord, deleteSetup, moveSetupForward, moveSetupBack } =
+    useImagingDraftStore();
 
   return (
     <>
@@ -45,8 +46,16 @@ function SetupsEdit() {
             <AltTemplateInput index={index} />
           </td>
           <td>
-            <ButtonArrow direction="down" />
-            <ButtonArrow direction="up" />
+            <ButtonArrow
+              direction="down"
+              index={index}
+              clickFunction={moveSetupBack}
+            />
+            <ButtonArrow
+              direction="up"
+              index={index}
+              clickFunction={moveSetupForward}
+            />
           </td>
         </tr>
       ))}
