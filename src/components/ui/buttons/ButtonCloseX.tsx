@@ -1,7 +1,8 @@
+import type { MouseEventHandler } from "react";
 import styles from "./ButtonCloseX.module.css";
 
 interface Props {
-  clickFunction?: () => void;
+  clickFunction: MouseEventHandler<HTMLButtonElement>;
 }
 
 function ButtonCloseX({ clickFunction }: Props) {

@@ -22,9 +22,7 @@ function SetupsEdit() {
           key={record!.order + "_" + index.toString()}
         >
           <td>
-            <span onClick={() => deleteSetup(index)}>
-              <ButtonCloseX />
-            </span>
+            <ButtonCloseX clickFunction={() => deleteSetup(index)} />
           </td>
           <td>
             {draftRecord.setups[index].isFilm ? (
