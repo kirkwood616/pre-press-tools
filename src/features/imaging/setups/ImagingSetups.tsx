@@ -1,5 +1,6 @@
 import AddLineItem from "@/features/imaging/controls/AddLineItem";
 import PocketIcon from "@/icons/PocketIcon";
+import { useImagingDraftStore } from "@/stores/imaging/useImagingDraftStore";
 import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
 import styles from "./ImagingSetups.module.css";
 import SetupsEdit from "./SetupsEdit";
@@ -13,6 +14,7 @@ interface Props {
 
 function ImagingSetups({ isRead, isEdit }: Props) {
   const { setCheckedAll } = useImagingOrderStore();
+  const { addSetup } = useImagingDraftStore();
 
   return (
     <div className={styles.ImagingSetups}>
@@ -45,7 +47,7 @@ function ImagingSetups({ isRead, isEdit }: Props) {
           {isEdit && <SetupsEdit />}
         </tbody>
       </table>
-      {!isRead && <AddLineItem label="ADD SETUP" />}
+      {!isRead && <AddLineItem label="ADD SETUP" onItemClick={addSetup} />}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import type { ImagingRecord, Status } from "@/types/Imaging";
+import type { ImagingRecord, Setup, Status } from "@/types/Imaging";
 import { arrayMove } from "@/utils/ArrayUtils";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
@@ -11,6 +11,15 @@ export const initialDraftState: ImagingRecord = {
   setups: [],
   notes: [],
   statusLog: [],
+};
+
+const initialSetupState: Setup = {
+  setup: "",
+  artFile: "",
+  screens: 1,
+  isChecked: false,
+  isFilm: false,
+  isAltTemplate: false,
 };
 
 type State = {
@@ -33,6 +42,7 @@ type Actions = {
   deleteSetup: (index: number) => void;
   moveSetupForward: (index: number) => void;
   moveSetupBack: (index: number) => void;
+  addSetup: () => void;
 };
 
 export const useImagingDraftStore = create<State & Actions>()(
@@ -104,6 +114,12 @@ export const useImagingDraftStore = create<State & Actions>()(
     moveSetupBack: (index) =>
       set((state) => {
         arrayMove(state.draftRecord.setups, index, index + 1);
+      }),
+    addSetup: () =>
+      set((state) => {
+        const newSetup: Setup = { ...initialSetupState };
+        newSetup.setup = state.draftRecord.setups.length + 1;
+        state.draftRecord.setups.push(newSetup);
       }),
   }))
 );

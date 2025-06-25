@@ -1,16 +1,15 @@
 import ButtonAddPlus from "@/components/ui/buttons/ButtonAddPlus";
-import type { MouseEvent } from "react";
 import styles from "./AddLineItem.module.css";
 
-interface Props {
+interface AddLineItemProps {
   label: string;
-  clickFunction?: (event: MouseEvent<HTMLButtonElement>) => void;
+  onItemClick: () => void;
 }
 
-function AddLineItem({ label }: Props) {
+function AddLineItem({ label, onItemClick }: AddLineItemProps) {
   return (
     <div className={styles.AddLineItem}>
-      <ButtonAddPlus /> <span>{label}</span>
+      <ButtonAddPlus clickFunction={onItemClick} /> <span>{label}</span>
     </div>
   );
 }

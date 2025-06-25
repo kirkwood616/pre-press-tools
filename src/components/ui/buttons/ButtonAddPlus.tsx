@@ -1,11 +1,10 @@
-import type { MouseEvent } from "react";
 import styles from "./ButtonAddPlus.module.css";
 
-interface Props {
-  clickFunction?: (event: MouseEvent<HTMLButtonElement>) => void;
+interface ButtonAddProps {
+  clickFunction: () => void;
 }
 
-function ButtonAddPlus({ clickFunction }: Props) {
+function ButtonAddPlus({ clickFunction }: ButtonAddProps) {
   return (
     <button className={styles.ButtonAddPlus} onClick={clickFunction}></button>
   );
