@@ -1,11 +1,8 @@
 import PocketIcon from "@/icons/PocketIcon";
 import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
+import styles from "./ImagingSetups.module.css";
 
-interface Props {
-  styles: CSSModuleClasses;
-}
-
-function SetupsRead({ styles }: Props) {
+function SetupsRead() {
   const { record, setChecked } = useImagingOrderStore();
 
   return (

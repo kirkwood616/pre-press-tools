@@ -7,24 +7,23 @@ import ScreensInput from "@/features/imaging/setups/inputs/ScreensInput";
 import SetupInput from "@/features/imaging/setups/inputs/SetupInput";
 import { useImagingDraftStore } from "@/stores/imaging/useImagingDraftStore";
 import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
+import styles from "./ImagingSetups.module.css";
 
-interface Props {
-  styles: CSSModuleClasses;
-}
-
-function SetupsEdit({ styles }: Props) {
+function SetupsEdit() {
   const { record } = useImagingOrderStore();
-  const { draftRecord } = useImagingDraftStore();
+  const { draftRecord, deleteSetup } = useImagingDraftStore();
 
   return (
     <>
-      {record.setups.map((setup, index) => (
+      {draftRecord.setups.map((setup, index) => (
         <tr
           className={setup.isFilm ? styles.film : styles.cts}
-          key={index + setup.artFile}
+          key={record!.order + "_" + index.toString()}
         >
           <td>
-            <ButtonCloseX />
+            <span onClick={() => deleteSetup(index)}>
+              <ButtonCloseX />
+            </span>
           </td>
           <td>
             {draftRecord.setups[index].isFilm ? (
