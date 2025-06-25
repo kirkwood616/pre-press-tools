@@ -1,0 +1,12 @@
+.ConfirmChanges {
+  background-color: var(--dark-gray);
+  border-bottom: 2px solid var(--dark-gray3);
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+  width: 100%;
+}
+
+.ConfirmChanges button {
+  min-width: 15rem;
+}

@@ -1,3 +1,4 @@
+import ConfirmChanges from "@/features/imaging/controls/ConfirmChanges";
 import ImagingLog from "@/features/imaging/log/ImagingLog";
 import ImagingMetadata from "@/features/imaging/metadata/ImagingMetadata";
 import ImagingNotes from "@/features/imaging/notes/ImagingNotes";
@@ -8,6 +9,7 @@ import styles from "./ImagingOrder.module.css";
 function ImagingOrderEdit() {
   return (
     <section className={styles.ImagingOrder}>
+      <ConfirmChanges />
       <ImagingMetadata />
       <OrderStatus />
       <ImagingSetups isEdit />
