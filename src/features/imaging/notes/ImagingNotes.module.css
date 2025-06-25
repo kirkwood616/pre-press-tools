@@ -26,10 +26,27 @@
   margin: 0;
 }
 
-.ImagingNotes ul li {
+.ImagingNotes li {
   padding: 0.25rem;
 }
 
 .ImagingNotes input {
-  width: 95%;
+  width: 100%;
+}
+
+.ImagingNotes .noteEditContainer {
+  align-items: center;
+  display: flex;
+  padding: 0 1.25rem;
+  width: 100%;
+}
+
+.ImagingNotes .noteEditContainer > li {
+  list-style: none;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.ImagingNotes .ulEdit {
+  padding: 0;
 }
