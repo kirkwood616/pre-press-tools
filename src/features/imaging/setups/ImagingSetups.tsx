@@ -41,8 +41,8 @@ function ImagingSetups({ isRead, isEdit }: Props) {
         </thead>
 
         <tbody>
-          {isRead && <SetupsRead styles={styles} />}
-          {isEdit && <SetupsEdit styles={styles} />}
+          {isRead && <SetupsRead />}
+          {isEdit && <SetupsEdit />}
         </tbody>
       </table>
       {!isRead && <AddLineItem label="ADD SETUP" />}
