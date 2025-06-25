@@ -39,10 +39,13 @@ type Actions = {
   setArtFile: (artName: string, index: number) => void;
   setScreenCount: (count: number, index: number) => void;
   setIsAltTemplate: (index: number) => void;
+  addSetup: () => void;
   deleteSetup: (index: number) => void;
   moveSetupForward: (index: number) => void;
   moveSetupBack: (index: number) => void;
-  addSetup: () => void;
+  addNote: () => void;
+  deleteNote: (index: number) => void;
+  setNote: (note: string, index: number) => void;
 };
 
 export const useImagingDraftStore = create<State & Actions>()(
@@ -103,6 +106,12 @@ export const useImagingDraftStore = create<State & Actions>()(
         state.draftRecord.setups[index].isAltTemplate =
           !state.draftRecord.setups[index].isAltTemplate;
       }),
+    addSetup: () =>
+      set((state) => {
+        const newSetup: Setup = { ...initialSetupState };
+        newSetup.setup = state.draftRecord.setups.length + 1;
+        state.draftRecord.setups.push(newSetup);
+      }),
     deleteSetup: (index) =>
       set((state) => {
         state.draftRecord.setups.splice(index, 1);
@@ -115,11 +124,17 @@ export const useImagingDraftStore = create<State & Actions>()(
       set((state) => {
         arrayMove(state.draftRecord.setups, index, index + 1);
       }),
-    addSetup: () =>
+    addNote: () =>
       set((state) => {
-        const newSetup: Setup = { ...initialSetupState };
-        newSetup.setup = state.draftRecord.setups.length + 1;
-        state.draftRecord.setups.push(newSetup);
+        state.draftRecord.notes.push("");
+      }),
+    deleteNote: (index) =>
+      set((state) => {
+        state.draftRecord.notes.splice(index, 1);
+      }),
+    setNote: (note, index) =>
+      set((state) => {
+        state.draftRecord.notes[index] = note;
       }),
   }))
 );
