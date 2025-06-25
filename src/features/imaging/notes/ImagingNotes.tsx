@@ -1,16 +1,15 @@
 import AddLineItem from "@/features/imaging/controls/AddLineItem";
 import NotesIcon from "@/icons/NotesIcon";
-import type { ImagingRecord } from "@/types/Imaging";
+import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
 import styles from "./ImagingNotes.module.css";
 
 interface Props {
-  record?: ImagingRecord;
   isRead?: boolean;
-  isEdit?: boolean;
-  isCreate?: boolean;
 }
 
-function ImagingNotes({ record, isRead }: Props) {
+function ImagingNotes({ isRead }: Props) {
+  const { record } = useImagingOrderStore();
+
   return (
     <div className={styles.ImagingNotes}>
       <div className={styles.notesHeader}>

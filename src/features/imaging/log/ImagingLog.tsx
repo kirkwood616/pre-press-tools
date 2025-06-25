@@ -1,13 +1,10 @@
 import Log from "@/icons/Log";
-import type { ImagingRecord } from "@/types/Imaging";
+import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
 import { useState } from "react";
 import styles from "./ImagingLog.module.css";
 
-interface Props {
-  record: ImagingRecord;
-}
-
-function ImagingLog({ record }: Props) {
+function ImagingLog() {
+  const { record } = useImagingOrderStore();
   const [isLogOpen, setIsLogOpen] = useState(false);
 
   return (

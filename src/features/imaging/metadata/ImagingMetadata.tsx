@@ -1,3 +1,4 @@
+import { useImagingDraftStore } from "@/stores/imaging/useImagingDraftStore";
 import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
 import styles from "./ImagingMetadata.module.css";
 
@@ -6,7 +7,8 @@ interface Props {
 }
 
 function ImagingMetadata({ isRead }: Props) {
-  const { record, setOrderNumber, setDue } = useImagingOrderStore();
+  const { record } = useImagingOrderStore();
+  const { draftRecord, setOrderNumber, setDue } = useImagingDraftStore();
 
   return (
     <div className={styles.ImagingMetadata}>
@@ -20,7 +22,7 @@ function ImagingMetadata({ isRead }: Props) {
           ) : (
             <input
               type="text"
-              value={record.order}
+              value={draftRecord.order}
               onChange={(e) => setOrderNumber(e.target.value)}
             />
           )}
@@ -37,7 +39,7 @@ function ImagingMetadata({ isRead }: Props) {
           ) : (
             <input
               type="text"
-              value={record.due}
+              value={draftRecord.due}
               onChange={(e) => setDue(e.target.value)}
             />
           )}

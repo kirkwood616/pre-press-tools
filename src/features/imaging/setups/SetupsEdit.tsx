@@ -1,64 +1,49 @@
 import ButtonArrow from "@/components/ui/buttons/ButtonArrow";
 import ButtonCloseX from "@/components/ui/buttons/ButtonCloseX";
-import type { ImagingRecord } from "@/types/Imaging";
+import AltTemplateInput from "@/features/imaging/setups/inputs/AltTemplateInput";
+import ArtFileInput from "@/features/imaging/setups/inputs/ArtFileInput";
+import FilmInput from "@/features/imaging/setups/inputs/FilmInput";
+import ScreensInput from "@/features/imaging/setups/inputs/ScreensInput";
+import SetupInput from "@/features/imaging/setups/inputs/SetupInput";
+import { useImagingDraftStore } from "@/stores/imaging/useImagingDraftStore";
+import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
 
 interface Props {
-  record: ImagingRecord;
   styles: CSSModuleClasses;
 }
 
-function SetupsEdit({ record, styles }: Props) {
+function SetupsEdit({ styles }: Props) {
+  const { record } = useImagingOrderStore();
+  const { draftRecord } = useImagingDraftStore();
+
   return (
     <>
       {record.setups.map((setup, index) => (
         <tr
           className={setup.isFilm ? styles.film : styles.cts}
-          key={setup.artFile + index}
+          key={index + setup.artFile}
         >
           <td>
             <ButtonCloseX />
           </td>
           <td>
-            {!setup.isFilm ? (
-              <input
-                type="number"
-                name="setupNumber"
-                id="setupNumber"
-                min="1"
-                value={setup.setup}
-              />
+            {draftRecord.setups[index].isFilm ? (
+              draftRecord.setups[index].setup.toString().toUpperCase()
             ) : (
-              setup.setup.toString().toUpperCase()
+              <SetupInput index={index} />
             )}
           </td>
           <td>
-            <input
-              type="checkbox"
-              name="filmCheck"
-              id="filmCheck"
-              checked={record.setups[index].isFilm}
-            />
+            <FilmInput index={index} />
           </td>
           <td className={styles.artFile}>
-            <input type="text" value={setup.artFile} />
+            <ArtFileInput index={index} />
           </td>
           <td>
-            <input
-              type="number"
-              name="screensNumber"
-              id="screensNumber"
-              min="0"
-              max="25"
-              value={setup.screens}
-            />
+            <ScreensInput index={index} />
           </td>
           <td>
-            <input
-              type="checkbox"
-              name="altTemplate"
-              id="altTemplate"
-              checked={setup.isAltTemplate}
-            />
+            <AltTemplateInput index={index} />
           </td>
           <td>
             <ButtonArrow direction="down" />

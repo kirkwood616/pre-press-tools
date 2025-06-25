@@ -1,9 +1,9 @@
-import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
+import { useImagingDraftStore } from "@/stores/imaging/useImagingDraftStore";
 import { imagingStatus, type Status } from "@/types/Imaging";
 import styles from "./OrderStatus.module.css";
 
 function OrderStatus() {
-  const { record, setStatus } = useImagingOrderStore();
+  const { draftRecord, setStatus } = useImagingDraftStore();
 
   return (
     <div className={styles.OrderStatus}>
@@ -11,7 +11,7 @@ function OrderStatus() {
       <select
         name="statusSelect"
         id="statusSelect"
-        value={record.status}
+        value={draftRecord.status}
         onChange={(e) => setStatus(e.target.value as Status)}
       >
         {imagingStatus.map((status, index) => (

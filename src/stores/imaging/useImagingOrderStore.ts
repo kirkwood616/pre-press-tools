@@ -1,8 +1,8 @@
-import type { ImagingRecord, Status } from "@/types/Imaging";
+import type { ImagingRecord } from "@/types/Imaging";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
-const initialOrderState: ImagingRecord = {
+export const initialOrderState: ImagingRecord = {
   id: undefined,
   order: "",
   due: "",
@@ -19,9 +19,6 @@ type State = {
 type Actions = {
   resetRecord: () => void;
   setRecord: (state: ImagingRecord) => void;
-  setOrderNumber: (orderNum: string) => void;
-  setDue: (dueDate: string) => void;
-  setStatus: (status: Status) => void;
   setChecked: (index: number) => void;
   setCheckedAll: () => void;
 };
@@ -33,18 +30,6 @@ export const useImagingOrderStore = create<State & Actions>()(
     setRecord: (payload: ImagingRecord) =>
       set((state) => {
         state.record = payload;
-      }),
-    setOrderNumber: (orderNum) =>
-      set((state) => {
-        state.record.order = orderNum;
-      }),
-    setDue: (dueDate) =>
-      set((state) => {
-        state.record.due = dueDate;
-      }),
-    setStatus: (status) =>
-      set((state) => {
-        state.record.status = status;
       }),
     setChecked: (index) =>
       set((state) => {

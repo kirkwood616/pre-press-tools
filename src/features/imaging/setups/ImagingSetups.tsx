@@ -6,21 +6,21 @@ import SetupsEdit from "./SetupsEdit";
 import SetupsRead from "./SetupsRead";
 
 interface Props {
-  // record?: ImagingRecord;
   isRead?: boolean;
   isEdit?: boolean;
   isCreate?: boolean;
 }
 
 function ImagingSetups({ isRead, isEdit }: Props) {
-  const { record, setCheckedAll } = useImagingOrderStore();
+  const { setCheckedAll } = useImagingOrderStore();
+
   return (
     <div className={styles.ImagingSetups}>
       <table>
         <thead>
           <tr>
             <th className={styles.iconSelect}>
-              {record && isRead && (
+              {isRead && (
                 <input
                   type="checkbox"
                   name="checkAll"
@@ -41,8 +41,8 @@ function ImagingSetups({ isRead, isEdit }: Props) {
         </thead>
 
         <tbody>
-          {record && isRead && <SetupsRead styles={styles} />}
-          {record && isEdit && <SetupsEdit record={record} styles={styles} />}
+          {isRead && <SetupsRead styles={styles} />}
+          {isEdit && <SetupsEdit styles={styles} />}
         </tbody>
       </table>
       {!isRead && <AddLineItem label="ADD SETUP" />}
