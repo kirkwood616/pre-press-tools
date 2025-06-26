@@ -1,21 +1,23 @@
 .AddLineItem {
   align-items: center;
-  background-color: var(--blue);
-  background: linear-gradient(
-    90deg,
-    var(--blue),
-    var(--blue),
-    var(--blue2),
-    var(--blue2)
-  );
+  background-color: var(--dark-gray2);
+  border-bottom: 2px solid var(--dark-gray3);
   color: white;
   display: flex;
   font-weight: bold;
-  padding: 0.25rem 1.25rem;
   text-align: left;
+  position: relative;
 }
 
 .AddLineItem span {
-  font-size: 1.25rem;
+  color: var(--green);
+  font-size: 1.15rem;
   margin-left: 0.5rem;
+}
+
+.AddLineItem .accent {
+  background-color: var(--green);
+  height: 2.5rem;
+  margin-right: 0.5rem;
+  width: 0.75rem;
 }

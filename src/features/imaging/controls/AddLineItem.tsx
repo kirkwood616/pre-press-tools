@@ -9,6 +9,7 @@ interface AddLineItemProps {
 function AddLineItem({ label, onItemClick }: AddLineItemProps) {
   return (
     <div className={styles.AddLineItem}>
+      <div className={styles.accent}></div>
       <ButtonAddPlus clickFunction={onItemClick} /> <span>{label}</span>
     </div>
   );

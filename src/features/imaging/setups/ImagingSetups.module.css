@@ -10,7 +10,7 @@
 
 .ImagingSetups thead tr {
   background-color: var(--dark-gray);
-  border: none;
+  border-top: 2px solid var(--dark-gray3);
   color: white;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .ImagingSetups tbody tr {
-  border-bottom: 1px solid var(--dark-gray);
+  border-bottom: 2px solid var(--dark-gray3);
 }
 
 .ImagingSetups tbody tr td:last-child {
