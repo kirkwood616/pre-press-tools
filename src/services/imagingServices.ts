@@ -1,5 +1,6 @@
 import { db } from "@/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import type { ImagingRecord } from "@/types/Imaging";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 
 export const getAllRecords = async () => {
   try {
@@ -11,6 +12,20 @@ export const getAllRecords = async () => {
     return records;
   } catch (error) {
     console.error("Error fetchings records", error);
+    throw error;
+  }
+};
+
+export const updateOrderRecord = async (
+  orderId: string,
+  updatedOrder: ImagingRecord
+) => {
+  try {
+    const docRef = doc(db, "imaging", orderId);
+    await setDoc(docRef, updatedOrder);
+    console.log("Document Updated");
+  } catch (error) {
+    console.error("Error updating order: ", error);
     throw error;
   }
 };
