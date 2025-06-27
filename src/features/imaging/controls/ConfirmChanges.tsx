@@ -8,14 +8,14 @@ import { useNavigate } from "react-router-dom";
 import styles from "./ConfirmChanges.module.css";
 
 function ConfirmChanges() {
-  const { record } = useImagingOrderStore();
+  const { order } = useImagingOrderStore();
   const { draftRecord, resetDraft } = useImagingDraftStore();
   const { isLoading, setIsLoading } = useLoadingStore();
   const navigate = useNavigate();
 
   function handleCancel() {
     resetDraft();
-    navigate(`/imaging/${record.status}/${record.id}`);
+    navigate(`/imaging/${order.status}/${order.id}`);
   }
 
   async function handleSave() {
@@ -23,9 +23,9 @@ function ConfirmChanges() {
     const updatedRecord = { ...draftRecord };
     delete updatedRecord.id;
     try {
-      await updateOrderRecord(record.id!, updatedRecord);
+      await updateOrderRecord(order.id!, updatedRecord);
       resetDraft();
-      navigate(`/imaging/${record.status}/${record.id}`);
+      navigate(`/imaging/${order.status}/${order.id}`);
     } catch (error) {
       console.error(error);
     } finally {

@@ -7,7 +7,7 @@ import styles from "./ImagingTable.module.css";
 
 function ImagingTable() {
   const { records } = useImagingRecordsStore();
-  const { setRecord } = useImagingOrderStore();
+  const { setOrder } = useImagingOrderStore();
 
   return (
     <div className={styles.container}>
@@ -39,7 +39,7 @@ function ImagingTable() {
               <td className={styles.due}>{item.due}</td>
               <td>{item.order}</td>
               <td className={styles.thin}>
-                <Link to={item.id!} onClick={() => setRecord(records[index])}>
+                <Link to={item.id!} onClick={() => setOrder(records[index])}>
                   <button className={styles.view}>
                     <ViewOrder size="1.25rem" fill="var(--dark-gray)" />
                   </button>

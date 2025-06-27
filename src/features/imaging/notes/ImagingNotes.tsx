@@ -10,7 +10,7 @@ interface Props {
 }
 
 function ImagingNotes({ isRead }: Props) {
-  const { record } = useImagingOrderStore();
+  const { order } = useImagingOrderStore();
   const { draftRecord, setNote, addNote, deleteNote } = useImagingDraftStore();
 
   return (
@@ -21,10 +21,10 @@ function ImagingNotes({ isRead }: Props) {
       <div className={styles.notesBody}>
         <ul className={!isRead ? styles.ulEdit : ""}>
           {isRead &&
-            record!.notes.map((note, index) => (
+            order!.notes.map((note, index) => (
               <li
                 className={styles.note}
-                key={record.id + "__" + index.toString()}
+                key={order.id + "__" + index.toString()}
               >
                 <mark>{note}</mark>
               </li>
@@ -34,7 +34,7 @@ function ImagingNotes({ isRead }: Props) {
             draftRecord!.notes.map((note, index) => (
               <div
                 className={styles.noteEditContainer}
-                key={index.toString() + "__" + record.id}
+                key={index.toString() + "__" + order.id}
               >
                 <ButtonCloseX clickFunction={() => deleteNote(index)} />
                 <li className={styles.note}>

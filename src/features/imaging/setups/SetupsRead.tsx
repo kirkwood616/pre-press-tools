@@ -3,11 +3,11 @@ import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
 import styles from "./ImagingSetups.module.css";
 
 function SetupsRead() {
-  const { record, setChecked } = useImagingOrderStore();
+  const { order, setChecked } = useImagingOrderStore();
 
   return (
     <>
-      {record.setups.map((setup, index) => (
+      {order.setups.map((setup, index) => (
         <tr
           className={setup.isFilm ? styles.film : styles.cts}
           key={setup.artFile + index}

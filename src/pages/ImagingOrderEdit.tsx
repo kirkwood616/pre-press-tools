@@ -13,12 +13,12 @@ import styles from "./ImagingOrder.module.css";
 function ImagingOrderEdit() {
   const { idParams } = useLocationRoutes();
   const { records } = useImagingRecordsStore();
-  const { setRecord } = useImagingOrderStore();
+  const { setOrder } = useImagingOrderStore();
 
   useEffect(() => {
     if (idParams) {
-      const order = records.find((item) => item.id === idParams);
-      if (order) setRecord(order);
+      const orderMatch = records.find((item) => item.id === idParams);
+      if (orderMatch) setOrder(orderMatch);
     }
   }, [records]);
 

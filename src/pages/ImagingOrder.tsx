@@ -12,21 +12,21 @@ import styles from "./ImagingOrder.module.css";
 function ImagingOrder() {
   const { idParams } = useLocationRoutes();
   const { records } = useImagingRecordsStore();
-  const { record, setRecord } = useImagingOrderStore();
+  const { order, setOrder } = useImagingOrderStore();
 
   useEffect(() => {
     if (idParams) {
       const order = records.find((item) => item.id === idParams);
-      if (order) setRecord(order);
+      if (order) setOrder(order);
     }
   }, [records]);
 
   return (
     <section className={styles.ImagingOrder}>
       <ImagingMetadata isRead />
-      <EditOrder recordID={record!.id!} />
+      <EditOrder recordID={order!.id!} />
       <ImagingSetups isRead />
-      {record!.notes.length ? <ImagingNotes isRead /> : <></>}
+      {order!.notes.length ? <ImagingNotes isRead /> : <></>}
       <ImagingLog />
       <div className={styles.orderFooter}></div>
     </section>

@@ -9,12 +9,12 @@ interface Props {
 }
 
 function EditOrder({ recordID }: Props) {
-  const { record } = useImagingOrderStore();
+  const { order } = useImagingOrderStore();
   const { setDraft } = useImagingDraftStore();
 
   return (
     <div className={styles.EditOrder}>
-      <Link to={`/imaging/edit/${recordID}`} onClick={() => setDraft(record)}>
+      <Link to={`/imaging/edit/${recordID}`} onClick={() => setDraft(order)}>
         <EditIcon />
         EDIT ORDER
       </Link>

@@ -10,7 +10,7 @@ import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
 import styles from "./ImagingSetups.module.css";
 
 function SetupsEdit() {
-  const { record } = useImagingOrderStore();
+  const { order } = useImagingOrderStore();
   const { draftRecord, deleteSetup, moveSetupForward, moveSetupBack } =
     useImagingDraftStore();
 
@@ -19,7 +19,7 @@ function SetupsEdit() {
       {draftRecord.setups.map((setup, index) => (
         <tr
           className={setup.isFilm ? styles.film : styles.cts}
-          key={record!.order + "_" + index.toString()}
+          key={order!.order + "_" + index.toString()}
         >
           <td>
             <ButtonCloseX clickFunction={() => deleteSetup(index)} />

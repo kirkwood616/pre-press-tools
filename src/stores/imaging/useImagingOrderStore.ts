@@ -13,32 +13,32 @@ export const initialOrderState: ImagingRecord = {
 };
 
 type State = {
-  record: ImagingRecord;
+  order: ImagingRecord;
 };
 
 type Actions = {
-  resetRecord: () => void;
-  setRecord: (state: ImagingRecord) => void;
+  resetOrder: () => void;
+  setOrder: (state: ImagingRecord) => void;
   setChecked: (index: number) => void;
   setCheckedAll: () => void;
 };
 
 export const useImagingOrderStore = create<State & Actions>()(
   immer((set) => ({
-    record: initialOrderState,
-    resetRecord: () => set(() => initialOrderState),
-    setRecord: (payload: ImagingRecord) =>
+    order: initialOrderState,
+    resetOrder: () => set(() => initialOrderState),
+    setOrder: (payload: ImagingRecord) =>
       set((state) => {
-        state.record = payload;
+        state.order = payload;
       }),
     setChecked: (index) =>
       set((state) => {
-        state.record.setups[index].isChecked =
-          !state.record.setups[index].isChecked;
+        state.order.setups[index].isChecked =
+          !state.order.setups[index].isChecked;
       }),
     setCheckedAll: () =>
       set((state) => {
-        state.record.setups.forEach(
+        state.order.setups.forEach(
           (item) => (item.isChecked = !item.isChecked)
         );
       }),

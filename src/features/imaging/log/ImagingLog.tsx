@@ -4,7 +4,7 @@ import { useState } from "react";
 import styles from "./ImagingLog.module.css";
 
 function ImagingLog() {
-  const { record } = useImagingOrderStore();
+  const { order } = useImagingOrderStore();
   const [isLogOpen, setIsLogOpen] = useState(false);
 
   return (
@@ -16,7 +16,7 @@ function ImagingLog() {
       </div>
       <div className={styles.logBody + (isLogOpen ? styles.visible : "")}>
         <ul>
-          {record.statusLog.map((log, index) => (
+          {order.statusLog.map((log, index) => (
             <li className={styles.logEntry} key={log.timestamp + index}>
               {log.logStatus} :: {log.timestamp}
             </li>

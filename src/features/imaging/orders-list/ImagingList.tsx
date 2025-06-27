@@ -10,10 +10,10 @@ import styles from "./ImagingList.module.css";
 function ImagingList() {
   const { idParams } = useLocationRoutes();
   const { isLoading } = useLoadingStore();
-  const resetRecord = useImagingOrderStore((state) => state.resetRecord);
+  const { resetOrder } = useImagingOrderStore();
 
   useEffect(() => {
-    if (!idParams) resetRecord();
+    if (!idParams) resetOrder();
   }, []);
 
   if (isLoading) return <Loading />;

@@ -7,7 +7,7 @@ interface Props {
 }
 
 function ImagingMetadata({ isRead }: Props) {
-  const { record } = useImagingOrderStore();
+  const { order } = useImagingOrderStore();
   const { draftRecord, setOrderNumber, setDue } = useImagingDraftStore();
 
   return (
@@ -18,7 +18,7 @@ function ImagingMetadata({ isRead }: Props) {
         </div>
         <div className={styles.orderNumber}>
           {isRead ? (
-            <>{record.order}</>
+            <>{order.order}</>
           ) : (
             <input
               type="text"
@@ -35,7 +35,7 @@ function ImagingMetadata({ isRead }: Props) {
         </div>
         <div className={styles.dueDate}>
           {isRead ? (
-            <>{record.due}</>
+            <>{order.due}</>
           ) : (
             <input
               type="text"
