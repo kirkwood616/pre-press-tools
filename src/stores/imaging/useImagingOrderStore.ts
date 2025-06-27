@@ -10,6 +10,7 @@ export const initialOrderState: ImagingRecord = {
   setups: [],
   notes: [],
   statusLog: [],
+  isLocked: false,
 };
 
 type State = {
@@ -21,6 +22,7 @@ type Actions = {
   setOrder: (state: ImagingRecord) => void;
   setChecked: (index: number) => void;
   setCheckedAll: () => void;
+  setIsLocked: () => void;
 };
 
 export const useImagingOrderStore = create<State & Actions>()(
@@ -41,6 +43,10 @@ export const useImagingOrderStore = create<State & Actions>()(
         state.order.setups.forEach(
           (item) => (item.isChecked = !item.isChecked)
         );
+      }),
+    setIsLocked: () =>
+      set((state) => {
+        state.order.isLocked = !state.order.isLocked;
       }),
   }))
 );

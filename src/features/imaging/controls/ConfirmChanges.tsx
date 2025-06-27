@@ -1,6 +1,9 @@
 import Loading from "@/components/loading/Loading";
 import GoButton from "@/components/ui/buttons/GoButton";
-import { updateOrderRecord } from "@/services/imagingServices";
+import {
+  updateOrderRecord,
+  updateRecordLock,
+} from "@/services/imagingServices";
 import { useImagingDraftStore } from "@/stores/imaging/useImagingDraftStore";
 import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
 import { useLoadingStore } from "@/stores/loading/useLoadingStore";
@@ -13,9 +16,17 @@ function ConfirmChanges() {
   const { isLoading, setIsLoading } = useLoadingStore();
   const navigate = useNavigate();
 
-  function handleCancel() {
-    resetDraft();
-    navigate(`/imaging/${order.status}/${order.id}`);
+  async function handleCancel() {
+    setIsLoading(true);
+    try {
+      await updateRecordLock(order.id!, false);
+      resetDraft();
+      navigate(`/imaging/${order.status}/${order.id}`);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   async function handleSave() {

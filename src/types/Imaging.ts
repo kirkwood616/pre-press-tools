@@ -6,6 +6,7 @@ export interface ImagingRecord {
   setups: Setup[];
   notes: string[];
   statusLog: StatusLog[];
+  isLocked: boolean;
 }
 
 export type Status = "pending" | "queue" | "imaged" | "washed";

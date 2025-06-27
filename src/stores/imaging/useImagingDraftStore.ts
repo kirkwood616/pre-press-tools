@@ -11,6 +11,7 @@ export const initialDraftState: ImagingRecord = {
   setups: [],
   notes: [],
   statusLog: [],
+  isLocked: false,
 };
 
 const initialSetupState: Setup = {
@@ -46,6 +47,7 @@ type Actions = {
   addNote: () => void;
   deleteNote: (index: number) => void;
   setNote: (note: string, index: number) => void;
+  setIsLocked: () => void;
 };
 
 export const useImagingDraftStore = create<State & Actions>()(
@@ -135,6 +137,10 @@ export const useImagingDraftStore = create<State & Actions>()(
     setNote: (note, index) =>
       set((state) => {
         state.draftRecord.notes[index] = note;
+      }),
+    setIsLocked: () =>
+      set((state) => {
+        state.draftRecord.isLocked = !state.draftRecord.isLocked;
       }),
   }))
 );
