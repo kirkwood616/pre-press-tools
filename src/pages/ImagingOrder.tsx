@@ -1,3 +1,4 @@
+import LockOverlay from "@/components/overlays/LockOverlay";
 import EditOrder from "@/features/imaging/controls/EditOrder";
 import ImagingLog from "@/features/imaging/log/ImagingLog";
 import ImagingMetadata from "@/features/imaging/metadata/ImagingMetadata";
@@ -23,6 +24,7 @@ function ImagingOrder() {
 
   return (
     <section className={styles.ImagingOrder}>
+      {order.isLocked && <LockOverlay message={"Order is currently locked."} />}
       <ImagingMetadata isRead />
       <EditOrder recordID={order!.id!} />
       <ImagingSetups isRead />

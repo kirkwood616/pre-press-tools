@@ -76,3 +76,8 @@
 .washed {
   background-color: var(--blue2);
 }
+
+.lockedListItem {
+  background-color: var(--medium-gray);
+  pointer-events: none;
+}

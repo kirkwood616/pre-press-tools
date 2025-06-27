@@ -32,7 +32,14 @@ function ImagingTable() {
         </thead>
         <tbody>
           {records.map((item, index) => (
-            <tr className={styles.queue} key={item.order + index}>
+            <tr
+              className={
+                item.isLocked
+                  ? `${styles.queue} ${styles.lockedListItem}`
+                  : styles.queue
+              }
+              key={item.order + index}
+            >
               <td>
                 <input type="checkbox" name="check" id="check" />
               </td>
