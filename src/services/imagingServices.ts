@@ -23,7 +23,6 @@ export const updateOrderRecord = async (
   try {
     const docRef = doc(db, "imaging", orderId);
     await setDoc(docRef, updatedOrder);
-    console.log("Document Updated");
   } catch (error) {
     console.error("Error updating order: ", error);
     throw error;
