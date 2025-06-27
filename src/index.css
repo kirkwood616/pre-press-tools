@@ -40,6 +40,16 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.App {
+  min-height: 100%;
+}
+
 a {
   font-weight: bold;
   color: var(--green);
@@ -54,6 +64,4 @@ body {
   background-color: var(--light-gray);
   margin: 0;
   min-width: 320px;
-  min-height: 100%;
-  padding-bottom: 1rem;
 }
