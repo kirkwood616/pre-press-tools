@@ -1,13 +1,12 @@
-import ImagingContext from "@/context/ImagingContext";
 import MenuDots from "@/icons/MenuDots";
 import ViewOrder from "@/icons/ViewOrder";
 import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
-import { useContext } from "react";
+import { useImagingRecordsStore } from "@/stores/imaging/useImagingRecordsStore";
 import { Link } from "react-router-dom";
 import styles from "./ImagingTable.module.css";
 
 function ImagingTable() {
-  const { records } = useContext(ImagingContext);
+  const { records } = useImagingRecordsStore();
   const { setRecord } = useImagingOrderStore();
 
   return (
