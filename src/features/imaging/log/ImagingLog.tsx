@@ -16,11 +16,12 @@ function ImagingLog() {
       </div>
       <div className={styles.logBody + (isLogOpen ? styles.visible : "")}>
         <ul>
-          {order.statusLog.map((log, index) => (
-            <li className={styles.logEntry} key={log.timestamp + index}>
-              {log.logStatus} :: {log.timestamp}
-            </li>
-          ))}
+          {order &&
+            order.statusLog.map((log, index) => (
+              <li className={styles.logEntry} key={log.timestamp + index}>
+                {log.logStatus} :: {log.timestamp}
+              </li>
+            ))}
         </ul>
       </div>
       <div className={styles.orderFooter}></div>

@@ -8,11 +8,9 @@ import SetupsRead from "./SetupsRead";
 
 interface Props {
   isRead?: boolean;
-  isEdit?: boolean;
-  isCreate?: boolean;
 }
 
-function ImagingSetups({ isRead, isEdit }: Props) {
+function ImagingSetups({ isRead }: Props) {
   const { setCheckedAll } = useImagingOrderStore();
   const { addSetup } = useImagingDraftStore();
 
@@ -42,10 +40,7 @@ function ImagingSetups({ isRead, isEdit }: Props) {
           </tr>
         </thead>
 
-        <tbody>
-          {isRead && <SetupsRead />}
-          {isEdit && <SetupsEdit />}
-        </tbody>
+        <tbody>{isRead ? <SetupsRead /> : <SetupsEdit />}</tbody>
       </table>
       {!isRead && <AddLineItem label="ADD SETUP" onItemClick={addSetup} />}
     </div>
