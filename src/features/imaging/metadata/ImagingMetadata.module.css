@@ -44,10 +44,13 @@
 
 .ImagingMetadata .dueDate,
 .ImagingMetadata .orderNumber {
+  align-items: center;
   background-color: white;
   border-radius: 0.5rem;
   color: red;
+  display: flex;
   font-size: 2rem;
   font-weight: bold;
+  justify-content: center;
   padding: 0.25rem 1rem;
 }

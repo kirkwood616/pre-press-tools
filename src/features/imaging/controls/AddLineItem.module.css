@@ -16,8 +16,8 @@
 }
 
 .AddLineItem .accent {
-  background-color: var(--green);
+  background: linear-gradient(90deg, var(--green), transparent);
   height: 2.5rem;
   margin-right: 0.5rem;
-  width: 0.75rem;
+  width: 4.5rem;
 }
