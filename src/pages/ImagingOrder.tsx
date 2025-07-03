@@ -64,7 +64,7 @@ function ImagingOrder({ isRead, isEdit, isCreate }: Props) {
 
   if (isCreate)
     return (
-      <div className={styles.ImagingOrder}>
+      <section className={styles.ImagingOrder}>
         <ConfirmChanges />
         <ImagingMetadata />
         <OrderStatus />
@@ -72,7 +72,7 @@ function ImagingOrder({ isRead, isEdit, isCreate }: Props) {
         <ImagingNotes />
         <ImagingLog />
         <div className={styles.orderFooter}></div>
-      </div>
+      </section>
     );
 }
 
