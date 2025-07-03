@@ -2,7 +2,8 @@
   background-color: var(--dark-gray);
   border-bottom: 2px solid var(--dark-gray3);
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
   padding: 1rem;
   width: 100%;
 }
