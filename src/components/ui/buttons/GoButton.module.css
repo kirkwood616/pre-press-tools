@@ -20,6 +20,17 @@
   color: black;
 }
 
+.secondary {
+  border: 2px solid var(--orange);
+  color: var(--orange);
+}
+.secondary:hover {
+  background-color: var(--orange);
+  border: 2px solid var(--orange);
+  box-shadow: 0 1px 15px -5px var(--orange);
+  color: black;
+}
+
 .cancel {
   border: 2px solid var(--red);
   color: var(--red);

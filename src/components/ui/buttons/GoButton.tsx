@@ -1,21 +1,21 @@
-import type { MouseEvent } from "react";
+import type { MouseEvent, ReactNode } from "react";
 import styles from "./GoButton.module.css";
 
-type ButtonType = "primary" | "secondary" | "cancel";
+type ButtonType = "primary" | "secondary" | "tertiary" | "cancel";
 
 interface Props {
-  label: string;
+  children: ReactNode;
   type: ButtonType;
   clickFunction?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-function GoButton({ label, type, clickFunction }: Props) {
+function GoButton({ children, type, clickFunction }: Props) {
   return (
     <button
       className={`${styles.GoButton} ${styles[type]}`}
       onClick={clickFunction}
     >
-      {label}
+      {children}
     </button>
   );
 }
