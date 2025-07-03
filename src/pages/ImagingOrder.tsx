@@ -46,7 +46,7 @@ function ImagingOrder({ isRead, isEdit, isCreate }: Props) {
         </OrderControls>
         <ImagingMetadata isRead />
         <ImagingSetups isRead />
-        {order!.notes.length ? <ImagingNotes isRead /> : <></>}
+        {order!.notes.length > 0 && <ImagingNotes isRead />}
         <ImagingLog />
         <div className={styles.orderFooter}></div>
       </section>
@@ -55,7 +55,9 @@ function ImagingOrder({ isRead, isEdit, isCreate }: Props) {
   if (isEdit)
     return (
       <section className={styles.ImagingOrder}>
-        <ConfirmChanges />
+        <OrderControls>
+          <ConfirmChanges isEdit />
+        </OrderControls>
         <ImagingMetadata />
         <OrderStatus />
         <ImagingSetups />
@@ -68,7 +70,9 @@ function ImagingOrder({ isRead, isEdit, isCreate }: Props) {
   if (isCreate)
     return (
       <section className={styles.ImagingOrder}>
-        <ConfirmChanges />
+        <OrderControls>
+          <ConfirmChanges isCreate />
+        </OrderControls>
         <ImagingMetadata />
         <OrderStatus />
         <ImagingSetups />
