@@ -1,10 +1,11 @@
+import GoButton from "@/components/ui/buttons/GoButton";
 import EditIcon from "@/icons/EditIcon";
 import { updateRecordLock } from "@/services/imagingServices";
 import { useImagingDraftStore } from "@/stores/imaging/useImagingDraftStore";
 import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
 import { useLoadingStore } from "@/stores/loading/useLoadingStore";
 import type { ImagingRecord } from "@/types/Imaging";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./EditOrder.module.css";
 
 interface Props {
@@ -15,10 +16,12 @@ function EditOrder({ recordID }: Props) {
   const { order } = useImagingOrderStore();
   const { setDraft } = useImagingDraftStore();
   const { setIsLoading } = useLoadingStore();
+  const navigate = useNavigate();
 
   async function handleEditOrder(order: ImagingRecord) {
     setIsLoading(true);
     try {
+      navigate(`/imaging/edit/${recordID}`);
       await updateRecordLock(order.id!, true);
       setDraft(order);
     } catch (error) {
@@ -30,13 +33,10 @@ function EditOrder({ recordID }: Props) {
 
   return (
     <div className={styles.EditOrder}>
-      <Link
-        to={`/imaging/edit/${recordID}`}
-        onClick={() => handleEditOrder(order)}
-      >
+      <GoButton type={"secondary"} clickFunction={() => handleEditOrder(order)}>
         <EditIcon />
         EDIT ORDER
-      </Link>
+      </GoButton>
     </div>
   );
 }

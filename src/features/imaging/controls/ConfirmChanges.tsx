@@ -47,8 +47,12 @@ function ConfirmChanges() {
   if (isLoading) return <Loading />;
   return (
     <div className={styles.ConfirmChanges}>
-      <GoButton label="CANCEL" type="cancel" clickFunction={handleCancel} />
-      <GoButton label="SAVE" type="primary" clickFunction={handleSave} />
+      <GoButton type="cancel" clickFunction={handleCancel}>
+        CANCEL
+      </GoButton>
+      <GoButton type="primary" clickFunction={handleSave}>
+        SAVE
+      </GoButton>
     </div>
   );
 }
