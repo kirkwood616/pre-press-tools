@@ -3,6 +3,7 @@ import type { ImagingRecord } from "@/types/Imaging";
 import {
   addDoc,
   collection,
+  deleteDoc,
   doc,
   getDocs,
   setDoc,
@@ -56,6 +57,17 @@ export const addNewOrderRecord = async (newOrder: ImagingRecord) => {
     return docRef;
   } catch (error) {
     console.error("Error adding document: ", error);
+    throw error;
+  }
+};
+
+export const deleteOrderRecord = async (docID: string) => {
+  try {
+    const docRef = doc(db, "imaging", docID);
+    await deleteDoc(docRef);
+    console.log("Document successfully deleted");
+  } catch (error) {
+    console.error("Error deleting document: ", error);
     throw error;
   }
 };
