@@ -1,9 +1,30 @@
 .ConfirmChanges {
+  width: 100%;
+}
+
+.ConfirmChanges h2 {
+  background: linear-gradient(var(--dark-gray), var(--dark-gray)) padding-box,
+    linear-gradient(
+      90deg,
+      var(--dark-gray),
+      var(--dark-gray3),
+      var(--dark-gray3),
+      var(--dark-gray)
+    );
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  color: var(--medium-gray);
+  font-size: 1.25rem;
+  margin: 0 0 1rem 0;
+}
+
+.ConfirmChanges .controls {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
 }
 
 .ConfirmChanges button {
-  min-width: 15rem;
+  margin: 0 0.75rem;
+  width: 100%;
 }

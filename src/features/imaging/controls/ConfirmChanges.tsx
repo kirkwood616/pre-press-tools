@@ -2,6 +2,7 @@ import Loading from "@/components/loading/Loading";
 import GoButton from "@/components/ui/buttons/GoButton";
 import {
   addNewOrderRecord,
+  deleteOrderRecord,
   updateOrderRecord,
   updateRecordLock,
 } from "@/services/imagingServices";
@@ -80,28 +81,51 @@ function ConfirmChanges({ isEdit, isCreate }: Props) {
     }
   }
 
+  async function handleDelete() {
+    if (window.confirm("Are you sure you want to delete this order?")) {
+      try {
+        setIsLoading(true);
+        await deleteOrderRecord(order.id!);
+        navigate(`/imaging/${order.status}`);
+        resetDraft();
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  }
+
   if (isLoading) return <Loading />;
   if (isEdit)
     return (
       <div className={styles.ConfirmChanges}>
-        <GoButton type="cancel" clickFunction={handleEditCancel}>
-          CANCEL
-        </GoButton>
-        <GoButton type="primary" clickFunction={handleEditSave}>
-          SAVE
-        </GoButton>
+        <h2>Edit Order Actions</h2>
+        <div className={styles.controls}>
+          <GoButton type={"delete"} clickFunction={handleDelete}>
+            DELETE ORDER
+          </GoButton>
+          <GoButton type="cancel" clickFunction={handleEditCancel}>
+            CANCEL
+          </GoButton>
+          <GoButton type="primary" clickFunction={handleEditSave}>
+            SAVE
+          </GoButton>
+        </div>
       </div>
     );
 
   if (isCreate)
     return (
       <div className={styles.ConfirmChanges}>
-        <GoButton type="cancel" clickFunction={handleCreateCancel}>
-          CANCEL
-        </GoButton>
-        <GoButton type="primary" clickFunction={handleCreateSave}>
-          SAVE
-        </GoButton>
+        <div className={styles.controls}>
+          <GoButton type="cancel" clickFunction={handleCreateCancel}>
+            CANCEL
+          </GoButton>
+          <GoButton type="primary" clickFunction={handleCreateSave}>
+            SAVE
+          </GoButton>
+        </div>
       </div>
     );
 }
