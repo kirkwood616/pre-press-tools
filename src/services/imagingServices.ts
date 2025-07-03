@@ -1,6 +1,7 @@
 import { db } from "@/firebase";
 import type { ImagingRecord } from "@/types/Imaging";
 import {
+  addDoc,
   collection,
   doc,
   getDocs,
@@ -44,6 +45,17 @@ export const updateRecordLock = async (
     await updateDoc(docRef, { isLocked: isLockedValue });
   } catch (error) {
     console.error("Error updating locked status: ", error);
+    throw error;
+  }
+};
+
+export const addNewOrderRecord = async (newOrder: ImagingRecord) => {
+  try {
+    const docRef = await addDoc(collection(db, "imaging"), newOrder);
+    console.log("Document added w/ ID: ", docRef.id);
+    return docRef;
+  } catch (error) {
+    console.error("Error adding document: ", error);
     throw error;
   }
 };
