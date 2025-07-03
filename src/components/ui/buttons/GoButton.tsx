@@ -1,7 +1,7 @@
 import type { MouseEvent, ReactNode } from "react";
 import styles from "./GoButton.module.css";
 
-type ButtonType = "primary" | "secondary" | "tertiary" | "cancel";
+type ButtonType = "primary" | "secondary" | "tertiary" | "cancel" | "delete";
 
 interface Props {
   children: ReactNode;

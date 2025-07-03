@@ -32,10 +32,21 @@
 }
 
 .cancel {
+  border: 2px solid var(--medium-gray);
+  color: var(--medium-gray);
+}
+.cancel:hover {
+  background-color: var(--medium-gray);
+  border: 2px solid var(--medium-gray);
+  box-shadow: 0 1px 15px -5px var(--medium-gray);
+  color: white;
+}
+
+.delete {
   border: 2px solid var(--red);
   color: var(--red);
 }
-.cancel:hover {
+.delete:hover {
   background-color: var(--red);
   border: 2px solid var(--red);
   box-shadow: 0 1px 15px -5px var(--red);
