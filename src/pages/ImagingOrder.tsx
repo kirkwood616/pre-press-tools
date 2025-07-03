@@ -1,6 +1,7 @@
 import LockOverlay from "@/components/overlays/LockOverlay";
 import ConfirmChanges from "@/features/imaging/controls/ConfirmChanges";
 import EditOrder from "@/features/imaging/controls/EditOrder";
+import OrderControls from "@/features/imaging/controls/OrderControls";
 import ImagingLog from "@/features/imaging/log/ImagingLog";
 import ImagingMetadata from "@/features/imaging/metadata/ImagingMetadata";
 import ImagingNotes from "@/features/imaging/notes/ImagingNotes";
@@ -40,8 +41,10 @@ function ImagingOrder({ isRead, isEdit, isCreate }: Props) {
         {order.isLocked && (
           <LockOverlay message={"Order is currently locked."} />
         )}
+        <OrderControls>
+          <EditOrder recordID={order!.id!} />
+        </OrderControls>
         <ImagingMetadata isRead />
-        <EditOrder recordID={order!.id!} />
         <ImagingSetups isRead />
         {order!.notes.length ? <ImagingNotes isRead /> : <></>}
         <ImagingLog />
