@@ -23,19 +23,17 @@ function ImagingOrderEdit() {
   }, []);
 
   return (
-    <>
-      <section className={styles.ImagingOrder}>
-        <OrderControls>
-          <ConfirmChanges isEdit />
-        </OrderControls>
-        <ImagingMetadata />
-        <OrderStatus />
-        <ImagingSetups />
-        <ImagingNotes />
-        <ImagingLog />
-        <div className={styles.orderFooter}></div>
-      </section>
-    </>
+    <section className={styles.ImagingOrder}>
+      <OrderControls>
+        <ConfirmChanges isEdit />
+      </OrderControls>
+      <ImagingMetadata />
+      <OrderStatus />
+      <ImagingSetups />
+      <ImagingNotes />
+      <ImagingLog />
+      <div className={styles.orderFooter}></div>
+    </section>
   );
 }
 
