@@ -4,7 +4,6 @@ import {
   addNewOrderRecord,
   deleteOrderRecord,
   updateOrderRecord,
-  updateRecordLock,
 } from "@/services/imagingServices";
 import { useImagingDraftStore } from "@/stores/imaging/useImagingDraftStore";
 import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
@@ -19,7 +18,7 @@ interface Props {
 }
 
 function ConfirmChanges({ isEdit, isCreate }: Props) {
-  const { order, setOrder } = useImagingOrderStore();
+  const { order, setOrder, resetOrder } = useImagingOrderStore();
   const { draftRecord, resetDraft } = useImagingDraftStore();
   const { isLoading, setIsLoading } = useLoadingStore();
   const navigate = useNavigate();
@@ -27,7 +26,6 @@ function ConfirmChanges({ isEdit, isCreate }: Props) {
   async function handleEditCancel() {
     setIsLoading(true);
     try {
-      await updateRecordLock(order.id!, false);
       resetDraft();
       navigate(`/imaging/${order.status}/${order.id}`);
     } catch (error) {
@@ -44,7 +42,7 @@ function ConfirmChanges({ isEdit, isCreate }: Props) {
     try {
       await updateOrderRecord(order.id!, updatedRecord);
       resetDraft();
-      navigate(`/imaging/${order.status}/${order.id}`);
+      navigate(`/imaging/${draftRecord.status}/${order.id}`);
     } catch (error) {
       console.error(error);
     } finally {
@@ -86,8 +84,9 @@ function ConfirmChanges({ isEdit, isCreate }: Props) {
       try {
         setIsLoading(true);
         await deleteOrderRecord(order.id!);
-        navigate(`/imaging/${order.status}`);
+        resetOrder();
         resetDraft();
+        navigate(`/imaging/${order.status}`);
       } catch (error) {
         console.error(error);
       } finally {

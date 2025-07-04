@@ -1,6 +1,5 @@
 import GoButton from "@/components/ui/buttons/GoButton";
 import EditIcon from "@/icons/EditIcon";
-import { updateRecordLock } from "@/services/imagingServices";
 import { useImagingDraftStore } from "@/stores/imaging/useImagingDraftStore";
 import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
 import { useLoadingStore } from "@/stores/loading/useLoadingStore";
@@ -21,9 +20,8 @@ function EditOrder({ recordID }: Props) {
   async function handleEditOrder(order: ImagingRecord) {
     setIsLoading(true);
     try {
-      navigate(`/imaging/edit/${recordID}`);
-      await updateRecordLock(order.id!, true);
       setDraft(order);
+      navigate(`/imaging/edit/${recordID}`);
     } catch (error) {
       console.error(error);
     } finally {
