@@ -3,13 +3,13 @@
 }
 
 .ConfirmChanges h2 {
-  background: linear-gradient(var(--dark-gray), var(--dark-gray)) padding-box,
+  background: linear-gradient(var(--dark-gray2), var(--dark-gray2)) padding-box,
     linear-gradient(
       90deg,
-      var(--dark-gray),
-      var(--dark-gray3),
-      var(--dark-gray3),
-      var(--dark-gray)
+      var(--dark-gray2),
+      var(--medium-gray),
+      var(--medium-gray),
+      var(--dark-gray2)
     );
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;

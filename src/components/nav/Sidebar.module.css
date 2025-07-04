@@ -1,6 +1,5 @@
 .Sidebar {
   background-color: black;
-  border-radius: 0 1rem 1rem 0;
   box-shadow: 0px -5px 20px black;
   color: white;
   display: flex;
@@ -38,7 +37,7 @@
 }
 .Sidebar .logout,
 .Sidebar .logoutActive {
-  background-color: var(--blue2);
+  background-color: var(--red);
   border-radius: 0.5rem 0 0 0.5rem;
   color: white;
   cursor: pointer;

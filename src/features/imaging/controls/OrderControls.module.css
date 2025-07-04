@@ -1,5 +1,5 @@
 .OrderControls {
-  background-color: var(--dark-gray);
+  background-color: var(--dark-gray2);
   border-bottom: 2px solid var(--dark-gray3);
   display: flex;
   flex-direction: column;
