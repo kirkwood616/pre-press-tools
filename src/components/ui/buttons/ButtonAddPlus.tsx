@@ -1,7 +1,7 @@
 import styles from "./ButtonAddPlus.module.css";
 
 interface ButtonAddProps {
-  clickFunction: () => void;
+  clickFunction?: () => void;
 }
 
 function ButtonAddPlus({ clickFunction }: ButtonAddProps) {
