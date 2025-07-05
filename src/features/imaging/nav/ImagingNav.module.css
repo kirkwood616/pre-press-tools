@@ -5,10 +5,11 @@
   height: 4rem;
   justify-content: center;
   padding: 0.5rem;
+  position: relative;
   width: 100%;
 }
 
-.ImagingNav button {
+.ImagingNav > a > button {
   background-color: var(--dark-gray2);
   border-radius: 1.5rem;
   border: 1px solid var(--medium-gray);
@@ -22,9 +23,9 @@
   transition: 0.15s ease-in-out;
 }
 
-.ImagingNav button.active {
-  background-color: var(--green);
-  border: 1px solid var(--green);
+.ImagingNav > a > button.sectionActive {
+  background-color: var(--blue2);
+  border: 1px solid var(--blue2);
   color: black;
   font-size: 1.25rem;
   padding: 0.5rem;

@@ -1,3 +1,4 @@
+import AddNewOrder from "@/features/imaging/controls/AddNewOrder";
 import useLocationRoutes from "@/hooks/useLocationRoutes";
 import { sections } from "@/types/Imaging";
 import { Link } from "react-router-dom";
@@ -13,7 +14,7 @@ function ImagingNav() {
           <button
             className={
               isPath(`/imaging/${item}`) || isLocation(item)
-                ? styles.active
+                ? styles.sectionActive
                 : ""
             }
             type="button"
@@ -22,6 +23,7 @@ function ImagingNav() {
           </button>
         </Link>
       ))}
+      <AddNewOrder />
     </div>
   );
 }
