@@ -1,0 +1,27 @@
+.AddNewOrder {
+  align-items: center;
+  background-color: var(--green);
+  border-radius: 5rem;
+  border: 2px solid var(--green);
+  cursor: pointer;
+  display: flex;
+  overflow: hidden;
+  padding: 0.25rem;
+  position: absolute;
+  right: 1rem;
+  transition: 0.1s ease-in;
+}
+.AddNewOrder:hover {
+  box-shadow: 0 1px 15px -5px var(--green);
+}
+
+.AddNewOrder .text {
+  display: flex;
+  font-size: 0;
+  font-weight: bold;
+  overflow: hidden;
+  transition: 0.1s ease-in;
+}
+.AddNewOrder:hover .text {
+  font-size: 1rem;
+}
