@@ -1,9 +1,6 @@
 import GoButton from "@/components/ui/buttons/GoButton";
 import EditIcon from "@/icons/EditIcon";
-import { useImagingDraftStore } from "@/stores/imaging/useImagingDraftStore";
-import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
 import { useLoadingStore } from "@/stores/loading/useLoadingStore";
-import type { ImagingRecord } from "@/types/Imaging";
 import { useNavigate } from "react-router-dom";
 import styles from "./EditOrder.module.css";
 
@@ -12,15 +9,12 @@ interface Props {
 }
 
 function EditOrder({ recordID }: Props) {
-  const { order } = useImagingOrderStore();
-  const { setDraft } = useImagingDraftStore();
   const { setIsLoading } = useLoadingStore();
   const navigate = useNavigate();
 
-  async function handleEditOrder(order: ImagingRecord) {
+  async function handleEditOrder() {
     setIsLoading(true);
     try {
-      setDraft(order);
       navigate(`/imaging/edit/${recordID}`);
     } catch (error) {
       console.error(error);
@@ -31,7 +25,7 @@ function EditOrder({ recordID }: Props) {
 
   return (
     <div className={styles.EditOrder}>
-      <GoButton type={"secondary"} clickFunction={() => handleEditOrder(order)}>
+      <GoButton type={"secondary"} clickFunction={handleEditOrder}>
         <EditIcon />
         EDIT ORDER
       </GoButton>

@@ -5,15 +5,20 @@ import ImagingMetadata from "@/features/imaging/metadata/ImagingMetadata";
 import ImagingNotes from "@/features/imaging/notes/ImagingNotes";
 import ImagingSetups from "@/features/imaging/setups/ImagingSetups";
 import OrderStatus from "@/features/imaging/status/OrderStatus";
-import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
+import { useImagingDraftStore } from "@/stores/imaging/useImagingDraftStore";
 import { useEffect } from "react";
 import styles from "./ImagingOrder.module.css";
 
 function ImagingOrderCreate() {
-  const { resetOrder } = useImagingOrderStore();
+  const { resetDraft } = useImagingDraftStore();
 
   useEffect(() => {
-    resetOrder();
+    resetDraft();
+
+    return () => {
+      console.log("wtf");
+      resetDraft();
+    };
   }, []);
 
   return (

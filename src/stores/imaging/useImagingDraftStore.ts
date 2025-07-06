@@ -53,7 +53,10 @@ type Actions = {
 export const useImagingDraftStore = create<State & Actions>()(
   immer((set) => ({
     draftRecord: initialDraftState,
-    resetDraft: () => set(() => initialDraftState),
+    resetDraft: () =>
+      set((state) => {
+        state.draftRecord = initialDraftState;
+      }),
     setDraft: (payload: ImagingRecord) =>
       set((state) => {
         state.draftRecord = payload;

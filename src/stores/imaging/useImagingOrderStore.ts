@@ -28,7 +28,10 @@ type Actions = {
 export const useImagingOrderStore = create<State & Actions>()(
   immer((set) => ({
     order: initialOrderState,
-    resetOrder: () => set(() => initialOrderState),
+    resetOrder: () =>
+      set((state) => {
+        state.order = initialOrderState;
+      }),
     setOrder: (payload: ImagingRecord) =>
       set((state) => {
         state.order = payload;
