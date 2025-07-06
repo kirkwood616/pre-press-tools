@@ -16,30 +16,45 @@ function ImagingTable() {
     })
     .sort((a, b) => new Date(a.due).valueOf() - new Date(b.due).valueOf());
 
-  return (
-    <div className={styles.container}>
-      <table className={styles.ImagingTable}>
-        <thead>
-          <tr>
-            <th className={styles.thin}>
-              <input type="checkbox" name="checkAll" id="checkAll" />
-            </th>
-            <th className={styles.due}>
-              <h2>Due</h2>
-            </th>
-            <th>
-              <h2>Order</h2>
-            </th>
-            <th>
-              <button className={styles.options}>
-                <MenuDots size="1.25rem" fill="var(--light-gray)" />
-              </button>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {statusRecords.length > 0 &&
-            statusRecords.map((item, index) => (
+  if (statusRecords.length < 1)
+    return (
+      <div className={styles.container}>
+        <table className={styles.ImagingTable}>
+          <thead>
+            <tr>
+              <th>
+                <h2>NO {endPathName.toUpperCase()} ORDERS</h2>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    );
+
+  if (statusRecords.length > 0)
+    return (
+      <div className={styles.container}>
+        <table className={styles.ImagingTable}>
+          <thead>
+            <tr>
+              <th className={styles.thin}>
+                <input type="checkbox" name="checkAll" id="checkAll" />
+              </th>
+              <th className={styles.due}>
+                <h2>Due</h2>
+              </th>
+              <th>
+                <h2>Order</h2>
+              </th>
+              <th>
+                <button className={styles.options}>
+                  <MenuDots size="1.25rem" fill="var(--light-gray)" />
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {statusRecords.map((item, index) => (
               <tr
                 className={
                   item.isLocked
@@ -62,10 +77,10 @@ function ImagingTable() {
                 </td>
               </tr>
             ))}
-        </tbody>
-      </table>
-    </div>
-  );
+          </tbody>
+        </table>
+      </div>
+    );
 }
 
 export default ImagingTable;
