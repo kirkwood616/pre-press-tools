@@ -10,14 +10,14 @@ import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
 import { useLoadingStore } from "@/stores/loading/useLoadingStore";
 import type { ImagingRecord } from "@/types/Imaging";
 import { useNavigate } from "react-router-dom";
-import styles from "./ConfirmChanges.module.css";
+import styles from "./AdminOrderControls.module.css";
 
 interface Props {
   isEdit?: boolean;
   isCreate?: boolean;
 }
 
-function ConfirmChanges({ isEdit, isCreate }: Props) {
+function AdminOrderControls({ isEdit, isCreate }: Props) {
   const { order, setOrder, resetOrder } = useImagingOrderStore();
   const { draftRecord, resetDraft } = useImagingDraftStore();
   const { isLoading, setIsLoading } = useLoadingStore();
@@ -98,7 +98,7 @@ function ConfirmChanges({ isEdit, isCreate }: Props) {
   if (isLoading) return <Loading />;
   if (isEdit)
     return (
-      <div className={styles.ConfirmChanges}>
+      <div className={styles.AdminOrderControls}>
         <h2>Edit Order Actions</h2>
         <div className={styles.controls}>
           <GoButton type={"delete"} clickFunction={handleDelete}>
@@ -116,7 +116,7 @@ function ConfirmChanges({ isEdit, isCreate }: Props) {
 
   if (isCreate)
     return (
-      <div className={styles.ConfirmChanges}>
+      <div className={styles.AdminOrderControls}>
         <div className={styles.controls}>
           <GoButton type="cancel" clickFunction={handleCreateCancel}>
             CANCEL
@@ -129,4 +129,4 @@ function ConfirmChanges({ isEdit, isCreate }: Props) {
     );
 }
 
-export default ConfirmChanges;
+export default AdminOrderControls;

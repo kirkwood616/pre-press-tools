@@ -1,4 +1,4 @@
-import ConfirmChanges from "@/features/imaging/controls/ConfirmChanges";
+import AdminOrderControls from "@/features/imaging/controls/AdminOrderControls";
 import OrderControls from "@/features/imaging/controls/OrderControls";
 import ImagingLog from "@/features/imaging/log/ImagingLog";
 import ImagingMetadata from "@/features/imaging/metadata/ImagingMetadata";
@@ -29,7 +29,7 @@ function ImagingOrderEdit() {
   return (
     <section className={styles.ImagingOrder}>
       <OrderControls>
-        <ConfirmChanges isEdit />
+        <AdminOrderControls isEdit />
       </OrderControls>
       <ImagingMetadata />
       <OrderStatus />
