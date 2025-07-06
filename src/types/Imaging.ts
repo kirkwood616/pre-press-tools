@@ -26,4 +26,9 @@ export interface StatusLog {
 }
 
 export const imagingStatus: Status[] = ["pending", "queue", "imaged", "washed"];
-export const sections: Status[] = ["pending", "queue", "imaged", "washed"];
+export const imagingSections: Status[] = [
+  "pending",
+  "queue",
+  "imaged",
+  "washed",
+];
