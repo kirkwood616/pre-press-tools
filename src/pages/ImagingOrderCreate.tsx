@@ -16,7 +16,6 @@ function ImagingOrderCreate() {
     resetDraft();
 
     return () => {
-      console.log("wtf");
       resetDraft();
     };
   }, []);
