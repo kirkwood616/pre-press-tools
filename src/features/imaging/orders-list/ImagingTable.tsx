@@ -1,3 +1,4 @@
+import useLocationRoutes from "@/hooks/useLocationRoutes";
 import MenuDots from "@/icons/MenuDots";
 import ViewOrder from "@/icons/ViewOrder";
 import { useImagingOrderStore } from "@/stores/imaging/useImagingOrderStore";
@@ -8,6 +9,12 @@ import styles from "./ImagingTable.module.css";
 function ImagingTable() {
   const { records } = useImagingRecordsStore();
   const { setOrder } = useImagingOrderStore();
+  const { endPathName } = useLocationRoutes();
+  const statusRecords = records
+    .filter((rec) => {
+      return rec.status === endPathName;
+    })
+    .sort((a, b) => new Date(a.due).valueOf() - new Date(b.due).valueOf());
 
   return (
     <div className={styles.container}>
@@ -31,29 +38,30 @@ function ImagingTable() {
           </tr>
         </thead>
         <tbody>
-          {records.map((item, index) => (
-            <tr
-              className={
-                item.isLocked
-                  ? `${styles.queue} ${styles.lockedListItem}`
-                  : styles.queue
-              }
-              key={item.order + index}
-            >
-              <td>
-                <input type="checkbox" name="check" id="check" />
-              </td>
-              <td className={styles.due}>{item.due}</td>
-              <td>{item.order}</td>
-              <td className={styles.thin}>
-                <Link to={item.id!} onClick={() => setOrder(records[index])}>
-                  <button className={styles.view}>
-                    <ViewOrder size="1.25rem" fill="var(--dark-gray)" />
-                  </button>
-                </Link>
-              </td>
-            </tr>
-          ))}
+          {statusRecords.length > 0 &&
+            statusRecords.map((item, index) => (
+              <tr
+                className={
+                  item.isLocked
+                    ? `${styles.queue} ${styles.lockedListItem}`
+                    : styles.queue
+                }
+                key={item.order + index}
+              >
+                <td>
+                  <input type="checkbox" name="check" id="check" />
+                </td>
+                <td className={styles.due}>{item.due}</td>
+                <td>{item.order}</td>
+                <td className={styles.thin}>
+                  <Link to={item.id!} onClick={() => setOrder(records[index])}>
+                    <button className={styles.view}>
+                      <ViewOrder size="1.25rem" fill="var(--dark-gray)" />
+                    </button>
+                  </Link>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
