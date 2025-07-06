@@ -54,7 +54,7 @@ function ConfirmChanges({ isEdit, isCreate }: Props) {
     setIsLoading(true);
     try {
       resetDraft();
-      navigate(-1);
+      navigate("/imaging");
     } catch (error) {
       console.error(error);
     } finally {

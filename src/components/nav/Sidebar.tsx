@@ -12,7 +12,7 @@ import styles from "./Sidebar.module.css";
 
 const navItems = [
   { name: "home", image: <HomeIcon size="2rem" />, path: "/" },
-  { name: "imaging", image: <ImageIcon size="2rem" />, path: "imaging/queue" },
+  { name: "imaging", image: <ImageIcon size="2rem" />, path: "imaging" },
 ];
 
 function Sidebar() {
