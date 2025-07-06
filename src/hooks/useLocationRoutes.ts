@@ -3,6 +3,10 @@ import { useLocation, useParams, type Params } from "react-router-dom";
 export default function useLocationRoutes() {
   const location = useLocation();
   const pathName: string = location.pathname;
+  const endPathName: string = pathName.slice(
+    pathName.lastIndexOf("/") + 1,
+    pathName.length
+  );
   const isLocation = (path: string) => pathName.includes(path);
   const isPath = (path: string): boolean => location.pathname === path;
   const isSubPath = (path: string): boolean =>
@@ -17,6 +21,7 @@ export default function useLocationRoutes() {
     isSubPath,
     idParams,
     pathName,
+    endPathName,
     params,
   };
 }
