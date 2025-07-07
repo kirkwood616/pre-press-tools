@@ -7,18 +7,23 @@ export default function useLocationRoutes() {
     pathName.lastIndexOf("/") + 1,
     pathName.length
   );
+  const params: Readonly<Params<string>> = useParams();
+  const idParams: string | undefined = params.id;
   const isLocation = (path: string) => pathName.includes(path);
   const isPath = (path: string): boolean => location.pathname === path;
   const isSubPath = (path: string): boolean =>
     location.pathname.startsWith(`/${path}`);
-  const params: Readonly<Params<string>> = useParams();
-  const idParams: string | undefined = params.id;
+  const getSectionNoParams = () => {
+    const noParams = pathName.slice(0, location.pathname.lastIndexOf("/"));
+    return noParams.slice(noParams.lastIndexOf("/") + 1, noParams.length);
+  };
 
   return {
     location,
     isLocation,
     isPath,
     isSubPath,
+    getSectionNoParams,
     idParams,
     pathName,
     endPathName,
