@@ -7,3 +7,14 @@
   padding: 1rem;
   width: 100%;
 }
+
+.OrderControls button {
+  margin: 0 0.75rem;
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
