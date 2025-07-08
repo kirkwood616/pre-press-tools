@@ -34,6 +34,17 @@
   color: black;
 }
 
+.tertiary {
+  border: 2px solid var(--blue2);
+  color: var(--blue2);
+}
+.tertiary:hover {
+  background-color: var(--blue2);
+  border: 2px solid var(--blue2);
+  box-shadow: 0 1px 15px -5px var(--blue2);
+  color: black;
+}
+
 .cancel {
   border: 2px solid var(--medium-gray);
   color: var(--medium-gray);
