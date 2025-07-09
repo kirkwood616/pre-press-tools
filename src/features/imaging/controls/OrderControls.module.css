@@ -9,12 +9,16 @@
 }
 
 .OrderControls button {
-  margin: 0 0.75rem;
+  width: 100%;
+}
+
+.UserControls {
   width: 100%;
 }
 
 .controls {
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
+  column-gap: 1.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1rem;
 }
