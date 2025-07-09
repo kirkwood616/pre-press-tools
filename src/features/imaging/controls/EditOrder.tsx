@@ -22,7 +22,7 @@ function EditOrder() {
 
   return (
     <GoButton type={"secondary"} clickFunction={handleEditOrder}>
-      <EditIcon />
+      <EditIcon size="1.25rem" />
       EDIT ORDER
     </GoButton>
   );
